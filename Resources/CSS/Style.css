@@ -1,7 +1,6 @@
 body {
   font-family: Roboto, sans-serif;
   font-size: 16px;
-  background-image: url('https://content.codecademy.com/courses/learn-css-selectors-visual-rules/hypnotize_bg.png');
 }
 
 header {
@@ -30,31 +29,43 @@ nav a {
   margin: 0;
 }
 
-#hero {
-  height: 70vh;
+.hero {
+  height: 100vh;
+  background-image: url("../Images/Background-medium.jpg");
+  background-size: cover;
+  background-position: center;
+  color: rgb(255, 255, 255);
+}
+
+.headline {
+  background-image: url("../Images/Background-medium.jpg");
+  background-size: cover;
+  background-position: bottom;
+  color: white;
+  margin-bottom: 20vh;
 }
 
 .jumbotron {
   display: flex;
   align-items: center;
-  background-image: url("../Images/Background-medium.jpg");
-  background-size: cover;
-  background-position: bottom;
   color: #ffffff;
-  height: 200px;
+  background-color: #2a70e000;
+  height: 100%;
 }
 
 .jumbotron h2 {
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0;
-  color: #fff;
+  color: rgb(255, 255, 255);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .jumbotron h3 {
   margin: 0 0 20px;
   color: #fff;
   font-size: 1.2rem;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 section img {
@@ -109,9 +120,16 @@ footer {
   padding: 20px 0;
 }
 
-footer .col-sm-8 {
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .bottomnav {
   display: flex;
   justify-content: flex-end;
+  gap: 20%;
 }
 
 footer ul {
