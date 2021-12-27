@@ -1,154 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+
 body {
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-}
-
-header {
-  padding: 20px 0;
-}
-
-header .row,
-footer .row {
-  display: flex;
-  align-items: center;
-}
-
-h1 {
-  font-weight: 700;
-  margin: 0;
-  font-size: 1.65rem;
-}
-
-nav {
-  display: flex;
-  justify-content: flex-end;
-}
-
-nav a {
-  padding: 0 20px;
-  margin: 0;
+  font-family: 'inter';
 }
 
 .hero {
-  height: 100vh;
-  background-image: url("../Images/Background-medium.jpg");
+  height: 90vh;
+  background-image: url("../Images/Hero-background.jpg");
   background-size: cover;
   background-position: center;
-  color: rgb(255, 255, 255);
 }
 
-.headline {
-  background-image: url("../Images/Background-medium.jpg");
-  background-size: cover;
-  background-position: bottom;
-  color: white;
-  margin-bottom: 20vh;
+.spaced {
+  letter-spacing: 0.4rem;
 }
 
-.jumbotron {
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-  background-color: #2a70e000;
-  height: 100%;
+.copy {
+  font-size: 0.8rem;
 }
 
-.jumbotron h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0;
-  color: rgb(255, 255, 255);
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-.jumbotron h3 {
-  margin: 0 0 20px;
-  color: #fff;
-  font-size: 1.2rem;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-section img {
-  margin: 0 0 30px;
-  width: 100%;
-}
-
-.stars img{
-  display:inline;
-  width:15%;
-}
-
-
-.col-md-6 {
-  margin: 0 0 30px;
-}
-
-.btn.btn-primary {
-  border-radius: 2px;
-  border: 0px;
-  color: #fbd1d5;
-  background-color: #ffffff;
-}
-
-.btn.btn-primary:hover {
-  color: #ffffff;
-  background-color: #fbd1d5;
-}
-
-.btn-secondary {
-  background-color: #2a70e0;
-  color: #ffffff;
-  margin: 0 0 30px;
-}
-
-.portrait {
-  width:  350px;
-  height: 300px;
-}
-
-figure img {
-  width: 100%;
-  height: auto;
-}
-
-figure {
-  margin-bottom: 30px;
-}
-
-footer {
-  font-size: 12px;
-  padding: 20px 0;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-footer .bottomnav {
-  display: flex;
-  justify-content: flex-end;
-  gap: 20%;
-}
-
-footer ul {
-  list-style: none;
-}
-
-#bio img{
-  max-width: 297px;
-  width: 100%;
-}
-
-#BS img{
-  width: 75%;
-}
-
-#html img{
-  width: 75%;
-}
-
-.portfolio-piece img{
-  max-width: 1200px;
+.star {
+  width: 18%;
 }
