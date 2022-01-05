@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'inter';
@@ -24,4 +27,24 @@ body {
 
 .star {
   width: 18%;
+}
+
+#about {
+  position: relative;
+  top: -50px;
+}
+
+#experience {
+  position: relative;
+  top: -50px;
+}
+
+#gamer {
+  position: relative;
+  top: -75px;
+}
+
+#adventurers {
+  position: relative;
+  top: -75px;
 }

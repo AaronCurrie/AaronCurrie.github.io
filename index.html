@@ -18,7 +18,7 @@
 
   <body class="bg-dark">
     <main>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
           <a class="navbar-brand" href="#">AC Creations</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,7 @@
           </div>
         </nav>
 
-        <section class="jumbotron jumbotron-fluid hero">
+        <section class="jumbotron jumbotron-fluid hero my-5">
             <div class="container-fluid h-100">
               <div class="row align-items-center h-100">
                 <h1 class="col-md-8 text-light bg-dark p-4">We create meaningful digital experiences using unique designs</h1>
@@ -56,34 +56,28 @@
             </div>         
         </section>
 
-        <section class="container text-light my-5" id="about">
-          <div class="row my-5">
-            <div class="col">
-              <h2 class="text-center display-4">Meet The Team</h2>
-            </div>
-          </div>
-
-          <div class="row justify-content-center">
-            <div class="col-md-6 text-center mb-2" id="bio">
-              <img src="./Resources/Images/me.jpg">
-            </div>
-            <div class="col-md-6 mb-2">
-              <h4>Aaron Currie</h4>
-              <h5>Creative Director</h5>
-              <p>Building visually stunning designs is not only a job but a passion for me. Having been working with websites and design for over 5+ years I have gained many skills and expertise. My passion for the work and the subject has only grown stronger as I have improved. My main area of expertise is in the front-end development and design of web solutiions. I am extremely competent with HTML and CSS and able to build sites from scratch as well as having extensive experience with platforms like wordpress and shopify.<br>I am always looking to upskill, learn new things and overcome a challenge.<br>With this passion and can do attitude I am confident that AC Creations is the best choice for your web project.</p>
-            </div>
-          </div>
-        </section>
-
+        <div id="projects"></div>
+        
         <section class="container my-5 text-light" id="projects">
           <div class="row my-5">
             <div class="col">
-              <h2 class="text-center text-light display-4">See Our Work</h2>
+              <h2 class=" text-light display-4">Selected Works</h2>
             </div>
           </div>
+
+          <div id="gamer"></div>
       
-          <div class="row bg-info my-3" id="gamer">
+          <div class="row bg-info my-3">
+            
             <div class="row">
+
+              <div class="col-lg-5 p-5">
+                <h6 class="font-weight-light font-italic mb-3">Interactive Web Design, UX Design, HTML CSS</h6>
+                <h3 class="mb-2">Gamer Academy</h3>
+                <p class="mb-3">Gamer Academy is a project for a game design school based in australia. The project was built from scratch using HTML CSS and SASS. The project was to copy ideas from retro acrade games so we included keyframe animations and many interative elements. The site is fully responsive and mobile ready.</p>
+                <a class="badge badge-dark p-3" href="https://aaroncurrie.github.io/gamer-academy/">View Live Site</a>
+              </div>
+
               <div class="col-lg-7">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                   <ol class="carousel-indicators">
@@ -112,16 +106,13 @@
                   </a>
                 </div>
               </div>              
-              <div class="col-lg-5 p-5">
-                <h6 class="font-weight-light mb-3">Interactive Web Design, UX Design, HTML CSS</h6>
-                <h3 class="mb-3">Gamer Academy</h3>
-                <p class="mb-3">Gamer Academy is a project for a game design school based in australia. The project was built from scratch using HTML CSS and SASS. The project was to copy ideas from retro acrade games so we included keyframe animations and many interative elements. The site is fully responsive and mobile ready.</p>
-                <a class="badge badge-dark p-3" href="https://aaroncurrie.github.io/gamer-academy/">View Live Site</a>
-              </div>
+              
             </div>             
           </div>
 
-          <div class="row bg-warning my-3" id="adventurers">
+          <div id="adventurers"></div>
+
+          <div class="row bg-warning my-3">
             <div class="row">
               <div class="col-lg-7">
                 <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
@@ -148,7 +139,7 @@
                 </div>
               </div>              
               <div class="col-lg-5 p-5">
-                <h6 class="font-weight-light mb-3">WordPress, UX Design, Web Design</h6>
+                <h6 class="font-weight-light mb-3 font-italic">WordPress, UX Design, Web Design</h6>
                 <h3 class="mb-3">Adventurers Daydream</h3>
                 <p class="mb-3">Adventuers Daydream is a travel blog site. To give the client more freedom we used a mobified version of WP to allow the client easily publish new blog posts as well as edit small details. The package included the design and development of the site as well as a collection of custom templates to allow the client to easily add new pages that fit with the broader site design.</p>
 
@@ -160,16 +151,39 @@
 
         </section>
 
-        <section class="container">
+        <div id="about"></div>
 
-          <div class="row my-5" id="experience">
+        <section class="container text-light my-5" >
+          <div class="row my-5">
+            <div class="col">
+              <h2 class="text-center display-4">Meet The Team</h2>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-2" id="bio">
+              <img src="./Resources/Images/me.jpg">
+            </div>
+            <div class="col-md-6 mb-2">
+              <h4>Aaron Currie</h4>
+              <h5>Creative Director</h5>
+              <p>Building visually stunning designs is not only a job but a passion for me. Having been working with websites and design for over 5+ years I have gained many skills and expertise. My passion for the work and the subject has only grown stronger as I have improved. My main area of expertise is in the front-end development and design of web solutiions. I am extremely competent with HTML and CSS and able to build sites from scratch as well as having extensive experience with platforms like wordpress and shopify.<br>I am always looking to upskill, learn new things and overcome a challenge.<br>With this passion and can do attitude I am confident that AC Creations is the best choice for your web project.</p>
+            </div>
+          </div>
+        </section>
+
+        <div id="experience"></div>
+
+        <section class="container-fluid">
+
+          <div class="row my-4">
             <div class="col">
               <h2 class="text-center text-light display-4">What Experience Do We Have</h2>
             </div>
           </div>
 
           <div class="row justify-content-center">
-            <div class="card bg-light col-lg-5 m-2 p-1">
+            <div class="card bg-light col-lg-3 col-md-5 m-2 p-1">
               <div>
                 <h4 class="card-title text-center mt-3">Wordpress</h4>
                 <img class="w-100" src="./Resources/Images/WP.png">
@@ -189,7 +203,7 @@
               </div>
             </div>
           
-            <div class="card bg-light col-lg-5 m-2 p-1">
+            <div class="card bg-light col-lg-3 col-md-5 m-2 p-1">
               <div>
                 <h4 class="card-title text-center mt-3">HTML</h4>
                 <img class="w-100 p-5" src="./Resources/Images/html5.png">
@@ -208,7 +222,7 @@
               </div>
             </div>
 
-            <div class="card bg-light col-lg-5 m-2 p-1">
+            <div class="card bg-light col-lg-3 col-md-5 m-2 p-1">
               <div>
                 <h4 class="card-title text-center mt-3">CSS</h4>
                 <img class="w-100" src="./Resources/Images/CSS.png">
@@ -227,7 +241,7 @@
               </div>
             </div>
 
-            <div class="card bg-light col-lg-5 m-2 p-1">
+            <div class="card bg-light col-lg-3 col-md-5 m-2 p-1">
               <div>
                 <h4 class="card-title text-center mt-3">Bootstrap</h4>
                 <img class="w-100 p-4" src="./Resources/Images/BS.png">
@@ -245,7 +259,7 @@
               </div>
             </div>
 
-            <div class="card bg-light col-lg-5 m-2 p-1">
+            <div class="card bg-light col-lg-3 col-md-5 m-2 p-1">
               <div>
                 <h4 class="card-title text-center mt-3">Javascript</h4>
                 <img class="w-100" src="./Resources/Images/JS.png">
@@ -262,7 +276,7 @@
               </div>
             </div>
 
-            <div class="card bg-light col-lg-5 m-2 p-1">
+            <div class="card bg-light col-lg-3 col-md-5 m-2 p-1">
               <div>
                 <h4 class="card-title text-center mt-3">React</h4>
                 <img class="w-100 p-3" src="./Resources/Images/React.png">
