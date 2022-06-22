@@ -10,9 +10,15 @@
     --main-blue: rgba(11, 168, 168, 0.741);
 }
 
+/* Text Styles*/
+
 html {
     font-family: 'Roboto';
     font-size: 18px;
+}
+
+h3 {
+    padding: 10px 0;
 }
 
 
@@ -23,11 +29,26 @@ header {
     color: white;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     z-index: 10;
     height: 8vh;
     border-bottom: 2px solid var(--main-blue);
     overflow: hidden;
+    padding: 0 20px;
+}
+
+nav a {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    transition: 0.2s linear;
+    text-decoration: none;
+    letter-spacing: 0.2rem;
+}
+
+nav a:hover {
+    color: var(--main-blue);
 }
 
 
@@ -46,7 +67,6 @@ section {
     min-width: 80%;
     gap: 50px;
     margin-top: 50px;
-    border: 1px red solid;
 }
 
 span {
@@ -87,12 +107,12 @@ span {
 /* About Section */ 
 
 .attributes,
-.profile,
 .current,
+.profile,
 .working {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 20px;
 }
 
 .attribute {
@@ -113,12 +133,16 @@ span {
     flex-direction: column;
     align-items: center;
     padding: 0 3%;
-    border: 1px solid red;
+}
+
+.me p {
+    text-align: justify;
 }
 
 .profile-pic {
     width: 80%;
     overflow: hidden;
+    background-color: var(--main-blue);
   }
   
 .profile-pic img {
@@ -130,7 +154,6 @@ span {
 
 .skills {
     width: 60%;
-    border: 1px solid red;
 }
 
 .skills img {
@@ -148,6 +171,52 @@ span {
     align-items: center;
 }
 
+.current {
+    text-align: center;
+}
+
+/*Portfolio*/
+
+.portfolio {
+    gap: 10px;
+
+}
+
+.portfolio-piece {
+    width: 100%;
+    display: grid;
+    grid-template: 1fr / 2fr 1fr 2fr;
+    justify-content: center;
+}
+
+.visual img {
+    width: 100%;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.heading h3 {
+    font-size: 0.8rem;
+}
+
+.description {
+    padding: 10px 20px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tech img {
+    width: 40px;
+}
 
 
 /* Components */
@@ -184,7 +253,7 @@ span {
     place-items: center;
     color: white;
   }
-  .hexagon::before, .hexagon::after {
+.hexagon::before, .hexagon::after {
     content:"";
     position: absolute;
     height: 0;
@@ -194,12 +263,34 @@ span {
     border-top: 50px solid transparent;
     border-bottom: 50px solid transparent; 
   }
-  .hexagon::before {
+.hexagon::before {
     left:-30px;
     border-right:30px solid var(--main-blue); 
   }
-  .hexagon::after {
+.hexagon::after {
     right:-30px;
     border-left:30px solid var(--main-blue); 
   }
 
+/*CARDS*/
+
+.card {
+    background-color: var(--main-blue);
+    padding: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    width: 80%;
+}
+
+.card p {
+    font-size: 0.8rem;
+}
+
+.group {
+    width: 33%;
+}
