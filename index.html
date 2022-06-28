@@ -21,9 +21,9 @@
       </div>
       <nav>
         <a href="#">HOME</a>
-        <a href="#">ABOUT ME</a>
-        <a href="#">PORTFOLIO</a>
-        <a href="#">CONTACT</a>
+        <a href="#aboutMe">ABOUT ME</a>
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#contact">CONTACT</a>
       </nav>
     </header>
     <main>
@@ -34,11 +34,11 @@
         <div class="title">
           <h1>AARON CURRIE</h1>
           <h2>WEB DEVELOPER</h2>
-          <button class="main-btn">SEE MY WORK<i class="fa fa-arrow-down"></i></button>
+          <a href="#aboutMe"><button class="main-btn">SEE MY WORK<i class="fa fa-arrow-down"></i></button></a>
         </div>
       </section>
 
-      <span></span>
+      <span id="aboutMe"></span>
 
       <section class="about me">
         <h2>ABOUT ME</h2>
@@ -50,7 +50,7 @@
               <i class="fa fa-heart fa-3x"></i>
             </div>
             <h3>PASSION</h3>
-            <p>something about this, something about this, something about this,</p>
+            <p>Web development and computer science is my passion and I this comes across in my work.</p>
           </div>
 
           <div class="attribute">
@@ -58,7 +58,7 @@
               <i class="fa fa-lightbulb-o fa-3x"></i>
             </div>
             <h3>INOVATION</h3>
-            <p>something about this, something about this, something about this,</p>
+            <p>I am constantly learning and staying up to date with the latest technologies.</p>
           </div>
 
           <div class="attribute">
@@ -66,7 +66,7 @@
               <i class="fa fa-mobile-phone fa-3x"></i>
             </div>
             <h3>RESPONSIVE</h3>
-            <p>something about this, something about this, something about this,</p>
+            <p>Building designs that work on all platforms big or small is the key.</p>
           </div>
 
           <div class="attribute">
@@ -74,7 +74,7 @@
               <i class="fa fa-rocket fa-3x"></i>
             </div>
             <h3>DYNAMIC</h3>
-            <p>something about this, something about this, something about this,</p>
+            <p>Building web pages that come to life and draw in the user add an extra layer of immersion.</p>
           </div>
 
         </div>
@@ -86,7 +86,8 @@
               <img src="./Resources/Images/me.jpg" alt="picture of me">
             </div>
             <h3>WHO AM I</h3>
-            <p>lets tell people about me, lets tell people about me, lets tell people about me, lets tell people about me, lets tell people about me, lets tell people about me, lets tell people about me, lets tell people about me, lets tell people about me, lets tell people about me, lets tell people about me, </p>
+            <p>Building visually stunning designs is my passion.<br>My main area of expertise is in the front-end development and design of web solutiions as well as having extensive experience with platforms like wordpress and shopify.
+              <br>I am always looking to learn more and upskill.<br>Check out what I am currently working on below.</p>
           </div>
 
           <div class="skills">
@@ -168,18 +169,14 @@
           
           <div class="books group">
 
-            <h3>Books</h3>
+            <h3>Book</h3>
             <div class="working">
               <div class="book card">
                 <img src="./Resources/Images/Client projects/Investment app/Blue-rock.jpg" alt="">
-                <h3>Eloquent Javascript</h3>
-                <p>about the book, about the book, about the book, about the book,</p>
-              </div>
-
-              <div class="book card">
-                <img src="./Resources/Images/Client projects/Investment app/Blue-rock.jpg" alt="">
-                <h3>4000 Weeks</h3>
-                <p>about the book, about the book, about the book, about the book,</p>
+                <div class="info">
+                  <h3>Eloquent Javascript</h3>
+                  <p>No one person can claim to know all the ins and outs of Javascript, this book is the perfect companion to help fill in the gaps.</p>
+                </div>               
               </div>
             </div>
 
@@ -187,19 +184,15 @@
 
           <div class="projects group">
 
-            <h3>Projects</h3>
+            <h3>Project</h3>
 
             <div class="working">
               <div class="project card">
                 <img src="./Resources/Images/Client projects/Investment app/Blue-rock.jpg" alt="">
-                <h3>Retirement Calculator</h3>
-                <p>about the book, about the book, about the book, about the book,</p>
-              </div>
-
-              <div class="project card">
-                <img src="./Resources/Images/Client projects/Investment app/Blue-rock.jpg" alt="">
-                <h3>Gamify Task Manager</h3>
-                <p>about the book, about the book, about the book, about the book,</p>
+                <div class="info">
+                  <h3>Gamify Task Manager</h3>
+                  <p>A task management app based on the console from the popular game fallout. Earn experience from doing tasks and become a hero in real life.</p>
+                </div>
               </div>
             </div>
             
@@ -212,14 +205,10 @@
             <div class="working">
               <div class="learn card">
                 <img src="./Resources/Images/Client projects/Investment app/Blue-rock.jpg" alt="">
-                <h3>Harvard CS50</h3>
-                <p>about the book, about the book, about the book, about the book,</p>
-              </div>
-
-              <div class="learn card">
-                <img src="./Resources/Images/Client projects/Investment app/Blue-rock.jpg" alt="">
-                <h3>Phython</h3>
-                <p>about the book, about the book, about the book, about the book,</p>
+                <div class="info">
+                  <h3>Harvard CS50</h3>
+                  <p>Currently working through the notorious CS50 course from Harvard. This course is a great mix of practical work and theory.</p>
+                </div>
               </div>
             </div>
             
@@ -229,14 +218,14 @@
 
       </section>
 
-      <span></span>
+      <span id="portfolio"></span>
 
       <section class="portfolio">
         <h2>PORTFOLIO</h2>
 
         <div class="portfolio-piece">
           <div class="visual">
-            <img src="./Resources/Images/Hero images assets/Mountain escape.jpg">
+            <img src="./Resources/Images/portfolio/desktop-design-completed.jpg">
           </div>
           <div class="heading">
             <h3>TIP CALCULATOR</h3>
@@ -249,17 +238,19 @@
               <img src="./Resources/Images/JS.png">
               <img src="./Resources/Images/JS.png">
             </div>
+            <p>Live Site: <a href="#">Tip Calculator</a></p>
+            <p>GitHub Repo: <a href="#">Tip Calculator Repo</a></p>
             <p>this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, </p>
           </div>
         </div>
           
           <div class="portfolio-piece">
             <div class="visual">
-              <img src="./Resources/Images/Hero images assets/Mountain escape.jpg">
+              <img src="./Resources/Images/portfolio/gamer-home.png">
             </div>
             <div class="heading">
-              <h3>TIP CALCULATOR</h3>
-              <h3>WEB APPLICATION</h3>
+              <h3>GAMER ACADEMY</h3>
+              <h3>WEBSITE</h3>
             </div>
             <div class="description">
               <h4>Title</h4>
@@ -268,6 +259,8 @@
                 <img src="./Resources/Images/JS.png">
                 <img src="./Resources/Images/JS.png">
               </div>
+              <p>Live Site: <a href="#">Gamer Academy</a></p>
+              <p>GitHub Repo: <a href="#">Gamer Academy Repo</a></p>
               <p>this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, </p>
             </div>
           </div>
@@ -277,8 +270,8 @@
                 <img src="./Resources/Images/Hero images assets/Mountain escape.jpg">
               </div>
               <div class="heading">
-                <h3>TIP CALCULATOR</h3>
-                <h3>WEB APPLICATION</h3>
+                <h3>TIDEMAN ALGORITHM</h3>
+                <h3>VOTING SYSTEM</h3>
               </div>
               <div class="description">
                 <h4>Title</h4>
@@ -287,6 +280,8 @@
                   <img src="./Resources/Images/JS.png">
                   <img src="./Resources/Images/JS.png">
                 </div>
+                <p>Live Site: <a href="#">Tideman Algorithm</a></p>
+                <p>GitHub Repo: <a href="#">Tideman Algorithm Repo</a></p>
                 <p>this is all about the project this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, </p>
               </div>
             </div>
@@ -294,7 +289,7 @@
         </div>
       </section>
 
-      <span></span>
+      <span id="contact"></span>
 
       <section class="contact">
         <form class="contact-form" method="post" action="">
