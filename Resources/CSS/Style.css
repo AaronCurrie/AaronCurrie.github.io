@@ -50,6 +50,7 @@ nav a {
 
 nav a:hover {
     color: var(--main-blue);
+    cursor: pointer;
 }
 
 
@@ -65,7 +66,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 80%;
+    text-align: center;
     gap: 50px;
     margin-top: 50px;
 }
@@ -109,6 +110,10 @@ span {
 
 /* About Section */ 
 
+.about-me {
+    width: 80%;
+}
+
 .attributes,
 .current,
 .profile,
@@ -128,12 +133,18 @@ span {
 }
 
 .attribute p {
-    width: 80%;
+    margin: 0 auto;
+    width: 90%;
     font-size: 0.8rem;
 }
 
 .working {
     justify-content: center;
+}
+
+.profile {
+    justify-content: space-between;
+    width: 100%;
 }
 
 .me {
@@ -145,21 +156,22 @@ span {
 }
 
 .me p {
-    text-align: justify;
+    text-align: center;
+    font-size: 0.8rem;
 }
 
 .profile-pic {
-    width: fit-content;
-    overflow: hidden;
-    background-color: var(--main-blue);
+    color: white;
+    transition: 0.2s linear;
+    position: relative;
   }
   
 .profile-pic img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border: 10px solid var(--main-blue);
+    object-fit: cover;
+    height: 100%;
 }
+
+/*skills*/
 
 .skills {
     width: 60%;
@@ -191,41 +203,31 @@ span {
     align-items: center;
 }
 
+/*currnet*/
 .current {
     padding: 0 0 50px 0;
     text-align: center;
+    gap: 0px;
 }
 
 /*Portfolio*/
 
 .portfolio {
     gap: 10px;
-
+    width: 80%;
+    text-align: left;
 }
 
 .portfolio-piece {
     width: 100%;
     display: grid;
-    grid-template: 1fr / 2fr 1fr 2fr;
+    grid-template: 1fr / 1fr 1fr;
     justify-content: center;
 }
 
 .visual img {
     width: 100%;
-}
-
-.heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 10px;
-    width: 100%;
-    text-align: center;
-}
-
-.heading h3 {
-    font-size: 0.8rem;
+    object-fit: cover;
 }
 
 .description {
@@ -233,6 +235,11 @@ span {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.tech {
+    display: flex;
+    align-items: center;
 }
 
 .tech img {
@@ -244,7 +251,7 @@ span {
 /* Button */
 
 .main-btn {
-    padding: 15px;
+    padding: 20px;
     border-radius: 20px;
     width: fit-content;
     border: 3px solid white;
@@ -253,6 +260,7 @@ span {
     font-weight: 700;
     letter-spacing: 0.4rem;
     transition: 0.2s linear;
+    font-size: 1rem;
 }
 
 .main-btn:hover {
@@ -260,6 +268,25 @@ span {
     border: 3px solid black;
     background-color: white;
     color: black;
+}
+
+.second-btn {
+    padding: 20px;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.486);
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    transition: 0.2s linear;
+    font-size: 1rem;
+    border: 3px solid black;
+}
+
+.second-btn:hover {
+    cursor: pointer;
+    background-color: var(--main-blue);
+    color: black;
+    border: 3px solid var(--main-blue);
 }
 
 /*Hexagon*/
@@ -273,7 +300,7 @@ span {
     display: grid;
     place-items: center;
     color: white;
-  }
+}
 .hexagon::before, .hexagon::after {
     content:"";
     position: absolute;
@@ -283,36 +310,49 @@ span {
     /* half height */
     border-top: 50px solid transparent;
     border-bottom: 50px solid transparent; 
-  }
+}
 .hexagon::before {
-    left:-30px;
+    left: -30px;
     border-right:30px solid var(--main-blue); 
-  }
+}
 .hexagon::after {
     right:-30px;
     border-left:30px solid var(--main-blue); 
-  }
+}
 
 /*CARDS*/
 
 .card {
     width: 100%;
+    height: 40vh;
+    overflow: hidden;
     color: white;
     transition: 0.2s linear;
-    
+    position: relative;
 }
 
-.card:hover {
-    color: black;
+.info:hover {
+    opacity: 1;
 }
 
 .info {
-    position: relative;
-    width: inherit;
+    padding: 10%;
+    display: grid;
+    place-items: center;
+    background-color: rgba(11, 168, 168, 0.712);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    transition: 0.2s linear;
 }
 
 .card img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -322,4 +362,140 @@ span {
 
 .group {
     width: 33%;
+}
+
+/*Mobile menu*/
+#mobile-menu {
+    display: none;
+}
+
+#mobile-nav {
+    position: fixed;
+    height: 100vh;
+    z-index: 99;
+    width: 100%;
+    display: none;
+    place-items: center;
+    background-color: black;
+}
+
+.mobile {
+    display: grid;
+    place-items: center;
+    gap: 10%;
+}
+
+/*Tablet and below settings*/
+@media only screen and (max-width: 768px){
+
+    /*Global*/
+
+    /*Nav Menu*/
+    #mobile-menu {
+        display: block;
+    }
+
+    #desktop-nav {
+        display: none;
+    }
+
+    /*about section*/
+    .attributes {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+
+    .attribute {
+        display: grid;
+        grid-template: 1fr / 1fr 3fr;
+        gap: 40px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .attribute p {
+        width: fit-content;
+    }
+
+    .profile {
+        flex-direction: column;
+    }
+    
+    .me {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .profile-pic {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        color: white;
+        transition: 0.2s linear;
+    }
+
+    .profile-pic img {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .info {
+        padding: 2%;
+        place-items: center;
+        opacity: 1;
+        width: 100%;
+        transition: 0.2s linear;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        background-color: white;
+        color: black;
+    }
+
+    .skills {
+        width: 100%;
+    }
+
+    /*What am i working on*/
+    .current {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .working {
+        display: block;
+    }
+
+    .group {
+        width: 80%;
+        border-bottom: 2px solid black;
+    }
+
+    .card {
+        height: fit-content;
+    }
+
+    /*Portfolio section*/
+    .portfolio-piece {
+        grid-template: 1fr 0fr / 1fr;
+        border-bottom: 2px black solid;
+    }
+
+    .portfolio {
+        gap: 40px;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 426px){
+
+    .portfolio {
+        width: 100%;
+    }
 }

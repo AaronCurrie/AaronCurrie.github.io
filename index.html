@@ -17,9 +17,11 @@
     <header>
       <div class="logo">
         <h2>Aaron Currie</h2>
-        <img src="" alt="logo">
       </div>
-      <nav>
+      <nav id = 'mobile-menu'>
+        <button class="second-btn">Menu</button>
+      </nav>
+      <nav id = 'desktop-nav'>
         <a href="#">HOME</a>
         <a href="#aboutMe">ABOUT ME</a>
         <a href="#portfolio">PORTFOLIO</a>
@@ -27,10 +29,18 @@
       </nav>
     </header>
     <main>
+      <div id = "mobile-nav">
+        <nav class="mobile">
+          <a>CLOSE</a>
+          <a href="#">HOME</a>
+          <a href="#aboutMe">ABOUT ME</a>
+          <a href="#portfolio">PORTFOLIO</a>
+          <a href="#contact">CONTACT</a>
+        </nav>        
+      </div>
+
 
       <section class="hero">
-        <canvas id="canvas"></canvas>
-        </div>
         <div class="title">
           <h1>AARON CURRIE</h1>
           <h2>WEB DEVELOPER</h2>
@@ -40,7 +50,7 @@
 
       <span id="aboutMe"></span>
 
-      <section class="about me">
+      <section class="about-me">
         <h2>ABOUT ME</h2>
 
         <div class="attributes">
@@ -49,32 +59,44 @@
             <div class="hexagon">
               <i class="fa fa-heart fa-3x"></i>
             </div>
-            <h3>PASSION</h3>
-            <p>Web development and computer science is my passion and I this comes across in my work.</p>
+            <div class="text">
+              <h3>PASSION</h3>
+              <p>Web development and computer science is my passion and I this comes across in my work.</p>              
+            </div>
+
           </div>
 
           <div class="attribute">
             <div class="hexagon">
               <i class="fa fa-lightbulb-o fa-3x"></i>
             </div>
-            <h3>INOVATION</h3>
-            <p>I am constantly learning and staying up to date with the latest technologies.</p>
+            <div>
+              <h3>INOVATION</h3>
+              <p>I am constantly learning and staying up to date with the latest technologies.</p>              
+            </div>
+
           </div>
 
           <div class="attribute">
             <div class="hexagon">
               <i class="fa fa-mobile-phone fa-3x"></i>
             </div>
-            <h3>RESPONSIVE</h3>
-            <p>Building designs that work on all platforms big or small is the key.</p>
+            <div>
+              <h3>RESPONSIVE</h3>
+              <p>Building designs that work on all platforms big or small is the key.</p>              
+            </div>
+
           </div>
 
           <div class="attribute">
             <div class="hexagon">
               <i class="fa fa-rocket fa-3x"></i>
             </div>
-            <h3>DYNAMIC</h3>
-            <p>Building web pages that come to life and draw in the user add an extra layer of immersion.</p>
+            <div>
+              <h3>DYNAMIC</h3>
+              <p>Building web pages that come to life and draw in the user add an extra layer of immersion.</p>              
+            </div>
+
           </div>
 
         </div>
@@ -83,11 +105,15 @@
 
           <div class="me">
             <div class="profile-pic">
-              <img src="./Resources/Images/me.jpg" alt="picture of me">
-            </div>
-            <h3>WHO AM I</h3>
-            <p>Building visually stunning designs is my passion.<br>My main area of expertise is in the front-end development and design of web solutiions as well as having extensive experience with platforms like wordpress and shopify.
-              <br>I am always looking to learn more and upskill.<br>Check out what I am currently working on below.</p>
+              <div class = "pPic">
+                <img src="./Resources/Images/me.jpg" alt="picture of me">
+              </div>
+              <div class="info">
+                <h3>WHO AM I</h3>
+                <p>Building visually stunning designs is my passion.<br>My main area of expertise is in the front-end development and design of web solutiions as well as having extensive experience with platforms like wordpress and shopify.
+                <br>I am always looking to learn more and upskill.<br>Check out what I am currently working on below.</p>
+              </div>
+            </div>            
           </div>
 
           <div class="skills">
@@ -172,7 +198,7 @@
             <h3>Book</h3>
             <div class="working">
               <div class="book card">
-                <img src="./Resources/Images/Client projects/Investment app/Blue-rock.jpg" alt="">
+                <img src="./Resources/Images/Elo-Js.jpg" alt="">
                 <div class="info">
                   <h3>Eloquent Javascript</h3>
                   <p>No one person can claim to know all the ins and outs of Javascript, this book is the perfect companion to help fill in the gaps.</p>
@@ -188,7 +214,7 @@
 
             <div class="working">
               <div class="project card">
-                <img src="./Resources/Images/Client projects/Investment app/Blue-rock.jpg" alt="">
+                <img src="./Resources/Images/fallout.png" alt="">
                 <div class="info">
                   <h3>Gamify Task Manager</h3>
                   <p>A task management app based on the console from the popular game fallout. Earn experience from doing tasks and become a hero in real life.</p>
@@ -204,7 +230,7 @@
 
             <div class="working">
               <div class="learn card">
-                <img src="./Resources/Images/Client projects/Investment app/Blue-rock.jpg" alt="">
+                <img src="./Resources/Images/CS50.jpeg" alt="">
                 <div class="info">
                   <h3>Harvard CS50</h3>
                   <p>Currently working through the notorious CS50 course from Harvard. This course is a great mix of practical work and theory.</p>
@@ -227,66 +253,33 @@
           <div class="visual">
             <img src="./Resources/Images/portfolio/desktop-design-completed.jpg">
           </div>
-          <div class="heading">
-            <h3>TIP CALCULATOR</h3>
-            <h3>WEB APPLICATION</h3>
-          </div>
           <div class="description">
-            <h4>Title</h4>
+            <h4>TIP CALCULATOR</h4>
             <div class="tech">
-              <img src="./Resources/Images/JS.png">
-              <img src="./Resources/Images/JS.png">
-              <img src="./Resources/Images/JS.png">
+              <p>CSS / HTML /JAVASCRIPT</p>
             </div>
             <p>Live Site: <a href="#">Tip Calculator</a></p>
             <p>GitHub Repo: <a href="#">Tip Calculator Repo</a></p>
             <p>this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, </p>
           </div>
         </div>
+
           
-          <div class="portfolio-piece">
-            <div class="visual">
-              <img src="./Resources/Images/portfolio/gamer-home.png">
-            </div>
-            <div class="heading">
-              <h3>GAMER ACADEMY</h3>
-              <h3>WEBSITE</h3>
-            </div>
-            <div class="description">
-              <h4>Title</h4>
-              <div class="tech">
-                <img src="./Resources/Images/JS.png">
-                <img src="./Resources/Images/JS.png">
-                <img src="./Resources/Images/JS.png">
-              </div>
-              <p>Live Site: <a href="#">Gamer Academy</a></p>
-              <p>GitHub Repo: <a href="#">Gamer Academy Repo</a></p>
-              <p>this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, </p>
-            </div>
+        <div class="portfolio-piece">
+          <div class="visual">
+            <img src="./Resources/Images/portfolio/gamer-home.png">
           </div>
-
-            <div class="portfolio-piece">
-              <div class="visual">
-                <img src="./Resources/Images/Hero images assets/Mountain escape.jpg">
-              </div>
-              <div class="heading">
-                <h3>TIDEMAN ALGORITHM</h3>
-                <h3>VOTING SYSTEM</h3>
-              </div>
-              <div class="description">
-                <h4>Title</h4>
-                <div class="tech">
-                  <img src="./Resources/Images/JS.png">
-                  <img src="./Resources/Images/JS.png">
-                  <img src="./Resources/Images/JS.png">
-                </div>
-                <p>Live Site: <a href="#">Tideman Algorithm</a></p>
-                <p>GitHub Repo: <a href="#">Tideman Algorithm Repo</a></p>
-                <p>this is all about the project this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, </p>
-              </div>
+          <div class="description">
+            <h4>GAMER ACADEMY</h4>
+            <div class="tech">
+              <p>HTML / CSS</p>
             </div>
-
+            <p>Live Site: <a href="#">Gamer Academy</a></p>
+            <p>GitHub Repo: <a href="#">Gamer Academy Repo</a></p>
+            <p>this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, </p>
+          </div>
         </div>
+
       </section>
 
       <span id="contact"></span>
@@ -298,7 +291,6 @@
       </section>
 
     </main>
-    
-    <!--<script src="./Resources/JS/main.js" async defer></script>-->
+  
   </body>
 </html>
