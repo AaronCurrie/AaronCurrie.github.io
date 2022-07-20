@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Aaron Currie</title>
 
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="./Resources/CSS/style.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+    <script src="./Resources/JS/main.js" defer></script>
 
   </head>
   <body>
@@ -18,9 +19,7 @@
       <div class="logo">
         <h2>Aaron Currie</h2>
       </div>
-      <nav id = 'mobile-menu'>
-        <button class="second-btn">Menu</button>
-      </nav>
+      <nav id = 'mobile-menu' class="second-btn">Menu</nav>
       <nav id = 'desktop-nav'>
         <a href="#">HOME</a>
         <a href="#aboutMe">ABOUT ME</a>
@@ -29,9 +28,8 @@
       </nav>
     </header>
     <main>
-      <div id = "mobile-nav">
+      <div id = "mobile-nav" class="hidden">
         <nav class="mobile">
-          <a>CLOSE</a>
           <a href="#">HOME</a>
           <a href="#aboutMe">ABOUT ME</a>
           <a href="#portfolio">PORTFOLIO</a>
