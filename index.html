@@ -15,25 +15,13 @@
 
   </head>
   <body>
-    <header>
-      <div class="logo">
-        <h2>Aaron Currie</h2>
-      </div>
-      <nav id = 'mobile-menu' class="second-btn">Menu</nav>
-      <nav id = 'desktop-nav'>
-        <a href="#">HOME</a>
-        <a href="#aboutMe">ABOUT ME</a>
-        <a href="#portfolio">PORTFOLIO</a>
-        <a href="#contact">CONTACT</a>
-      </nav>
-    </header>
     <main>
       <div id = "mobile-nav" class="hidden">
         <nav class="mobile">
-          <a href="#">HOME</a>
-          <a href="#aboutMe">ABOUT ME</a>
-          <a href="#portfolio">PORTFOLIO</a>
-          <a href="#contact">CONTACT</a>
+          <a class="mobileLink" href="#">HOME</a>
+          <a class="mobileLink" href="#aboutMe">ABOUT ME</a>
+          <a class="mobileLink" href="#portfolio">PORTFOLIO</a>
+          <a class="mobileLink" href="#contact">CONTACT</a>
         </nav>        
       </div>
 
@@ -44,8 +32,22 @@
           <h2>WEB DEVELOPER</h2>
           <a href="#aboutMe"><button class="main-btn">SEE MY WORK<i class="fa fa-arrow-down"></i></button></a>
         </div>
+
+        
       </section>
 
+      <header>
+        <div class="logo">
+          <h2>Aaron Currie</h2>
+        </div>
+        <nav id = 'mobile-menu' class="second-btn">Menu</nav>
+        <nav id = 'desktop-nav'>
+          <a href="#">HOME</a>
+          <a href="#aboutMe">ABOUT ME</a>
+          <a href="#portfolio">PORTFOLIO</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
+      </header>
       <span id="aboutMe"></span>
 
       <section class="about-me">
@@ -108,92 +110,78 @@
               </div>
               <div class="info">
                 <h3>WHO AM I</h3>
-                <p>Building visually stunning designs is my passion.<br>My main area of expertise is in the front-end development and design of web solutiions as well as having extensive experience with platforms like wordpress and shopify.
-                <br>I am always looking to learn more and upskill.<br>Check out what I am currently working on below.</p>
+                <p>I am an aspiring software engineer currently enrolled on the Northcoders bootcamp.<br>I am passionate about computer science and technology. I love to learn and have dedicated the last year or so to learning as much as I can in the field.<br>I am confident in UX and UI design as well as front end and back end using Javascript<br>Check out what I currently spend my time on below.</p>
               </div>
             </div>            
           </div>
 
           <div class="skills">
-            <div class="skill html">
-              <h3>HTML5</h3>
-              <img src="./Resources/Images/html5.png">
-              <div class="stars">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
+            
+            <div class = 'graph'>
+              <div class = 'skill'>
+                <p>CSS</p>
+                <div class = "bar-holder">
+                  <div class = 'bar' id="css"></div>
+                  <div class = 'level'>70%</div>  
+                </div>
               </div>
-            </div>
+              <div class = 'skill'>
+                <p>HTML</p>
+                <div class = "bar-holder">
+                  <div class = 'bar' id="html"></div>
+                  <div class = 'level'>70%</div>  
+                </div>
+              </div>
+              <div class = 'skill'>
+                <p>JS</p>
+                <div class = "bar-holder">
+                  <div class = 'bar' id="js"></div>
+                  <div class = 'level'>90%</div>  
+                </div>
+              </div>
+              <div class = 'skill'>
+                <p>Node.js</p>
+                <div class = "bar-holder">
+                  <div class = 'bar' id="node"></div>
+                  <div class = 'level'>60%</div>  
+                </div>
+              </div>
+              <div class = 'skill'>
+                <p>Express</p>
+                <div class = "bar-holder">
+                  <div class = 'bar' id="express"></div>
+                  <div class = 'level'>70%</div>  
+                </div>
+              </div>
+              <div class = 'skill'>
+                <p>SQL</p>
+                <div class = "bar-holder">
+                  <div class = 'bar' id="sql"></div>
+                  <div class = 'level'>60%</div>  
+                </div>
+              </div>
+              <div class = 'skill'>
+                <p>Design</p>
+                <div class = "bar-holder">
+                  <div class = 'bar' id="design"></div>
+                  <div class = 'level'>50%</div>  
+                </div>
+              </div>
 
-            <div class="skill css">
-              <h3>CSS</h3>
-              <img src="./Resources/Images/CSS.png">
-              <div class="stars">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-              </div>
-            </div>
 
-            <div class="skill js">
-              <h3>Javascript</h3>
-              <img src="./Resources/Images/JS.png">
-              <div class="stars">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-              </div>
-            </div>
-
-            <div class="skill bs">
-              <h3>Bootstrap</h3>
-              <img src="./Resources/Images/BS.png">
-              <div class="stars">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-              </div>
-            </div>
-
-            <div class="skill wp">
-              <h3>Wordpress</h3>
-              <img src="./Resources/Images/WP.png">
-              <div class="stars">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-              </div>
-            </div>
-
-            <div class="skill react">
-              <h3>React</h3>
-              <img src="./Resources/Images/React.png">
-              <div class="stars">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-                <img src="./Resources/Images/star.png">
-              </div>
             </div>
 
           </div>
 
         </div>
 
-        <h2>WHAT AM I CURRENTLY WORKING ON</h2>
+        <h2>WHAT AM I SPENDING MY TIME ON</h2>
 
         <div class="current">
           
           <div class="books group">
 
-            <h3>Book</h3>
+            <h3>Reading</h3>
             <div class="working">
               <div class="book card">
                 <img src="./Resources/Images/Elo-Js.jpg" alt="">
@@ -208,7 +196,7 @@
 
           <div class="projects group">
 
-            <h3>Project</h3>
+            <h3>Personal Project</h3>
 
             <div class="working">
               <div class="project card">
@@ -228,10 +216,10 @@
 
             <div class="working">
               <div class="learn card">
-                <img src="./Resources/Images/CS50.jpeg" alt="">
+                <img src="./Resources/Images/nc-logo-dark.png" alt="">
                 <div class="info">
-                  <h3>Harvard CS50</h3>
-                  <p>Currently working through the notorious CS50 course from Harvard. This course is a great mix of practical work and theory.</p>
+                  <h3>Northcoders</h3>
+                  <p>I am currently enrolled on Northcoders bootcamp. This course is an intense 13 week course focusing on Javascript and teaching the principles of both front end and back end.</p>
                 </div>
               </div>
             </div>
@@ -256,9 +244,10 @@
             <div class="tech">
               <p>CSS / HTML /JAVASCRIPT</p>
             </div>
-            <p>Live Site: <a href="#">Tip Calculator</a></p>
-            <p>GitHub Repo: <a href="#">Tip Calculator Repo</a></p>
-            <p>this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, </p>
+            <p>Live Site: <a href="https://aaroncurrie.github.io/challenge-tip-calculator/">Tip Calculator</a></p>
+            <p>GitHub Repo: <a href="https://github.com/AaronCurrie/challenge-tip-calculator">Tip Calculator Repo</a></p>
+            <p>I built this tip calculator as a challenge to test my CSS and HTML as well as to see if I could intergrate JS into the design using the DOM.<br>The calculator can take an amount for the bill aswell as how many people there were and will calculate the amount per person. If a tip amount is also selected it will take this into account and also calculate how much each person owes in tip.
+              <br>The design is simple and minimilist, so as not to distract from the functionality of the calculator.</p>
           </div>
         </div>
 
@@ -272,9 +261,9 @@
             <div class="tech">
               <p>HTML / CSS</p>
             </div>
-            <p>Live Site: <a href="#">Gamer Academy</a></p>
-            <p>GitHub Repo: <a href="#">Gamer Academy Repo</a></p>
-            <p>this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, this is all about the project, </p>
+            <p>Live Site: <a href="https://aaroncurrie.github.io/gamer-academy/">Gamer Academy</a></p>
+            <p>GitHub Repo: <a href="https://github.com/AaronCurrie/gamer-academy">Gamer Academy Repo</a></p>
+            <p>This is a prototype website of a game development school. I only used CSS and HTML for this site and utilised CSS features like animations to keep the site interactive and interesting.</p>
           </div>
         </div>
 

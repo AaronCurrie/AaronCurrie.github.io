@@ -29,18 +29,20 @@ h3 {
 
 /* Nav bar */
 header {
-    position: fixed;
-    background-color: black;
+    position: sticky;
+    top: 0;
+    background-color: rgb(0, 0, 0);
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     z-index: 10;
     height: 8vh;
     border-bottom: 2px solid var(--main-blue);
     overflow: hidden;
     padding: 0 20px;
+    opacity: 0.80;
 }
 
 nav a {
@@ -52,7 +54,8 @@ nav a {
     letter-spacing: 0.2rem;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
     color: var(--main-blue);
     cursor: pointer;
 }
@@ -76,15 +79,11 @@ section {
     align-items: center;
     text-align: center;
     gap: 50px;
-    margin-top: 50px;
 }
 
 span {
     width: 100%;
     height: 5vh;
-    background-color: black;
-    border-top: 3px solid var(--main-blue);
-    border-bottom: 3px solid var(--main-blue);
 }
 
 /* Hero Section*/
@@ -174,50 +173,69 @@ span {
     transition: 0.2s linear;
     position: relative;
   }
+
+.me .info {
+    border-radius: 40px;
+    padding: 5%;
+}
   
 .profile-pic img {
     object-fit: cover;
     height: 100%;
+    border-radius: 40px;
 }
 
 /*skills*/
 
 .skills {
     width: 60%;
-    text-align: left;
     padding-left: 20px;
+    text-align: left;
 }
 
-.skills img {
-    max-width: 50px;
-    width: 8vw;
+.graph {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.html img {
-    max-width: 35px;
-    width: 5vw;
-    left: 8px;
-    position: relative;
-}
-
-.html .stars {
-    position: relative;
-    right: 9px;
-}
-
-.stars img {
-    max-width: 25px;
-    width: 4vw;
+.skill p {
+    width: 15%;
 }
 
 .skill {
-    display: grid;
-    grid-template: 60px/ 29% 19% 49%;
-    gap: 20px;
+    display: flex;
     align-items: center;
+    width: 100%;
 }
 
-/*currnet*/
+
+.bar-holder {
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 5px;
+}
+
+.bar {
+    background-color: var(--main-blue);
+    width: 50%;
+    border-radius: 5px;
+    height: 100%;
+}
+
+#css {width: 70%;}
+#html {width: 70%;}
+#js {width: 90%;}
+#node {width: 60%;}
+#express {width: 70%;}
+#sql {width: 60%;}
+#design {width: 50%;}
+
+
+/*current*/
 .current {
     padding: 0 0 50px 0;
     text-align: center;
@@ -227,9 +245,11 @@ span {
 /*Portfolio*/
 
 .portfolio {
+    padding: 5% 0;
     gap: 10px;
-    width: 80%;
+    width: 100%;
     text-align: left;
+    background-color: rgb(236, 236, 236);
 }
 
 .portfolio h2 {
@@ -237,15 +257,24 @@ span {
 }
 
 .portfolio-piece {
-    width: 100%;
+    width: 80%;
     display: grid;
     grid-template: 1fr / 1fr 1fr;
     justify-content: center;
 }
 
+.visual {
+    border: 10px solid var(--main-blue);
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+}
+
 .visual img {
     width: 100%;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .description {
@@ -416,6 +445,9 @@ span {
 @media only screen and (max-width: 768px){
 
     /*Global*/
+    header{
+        position: fixed;
+    }
 
     /*Nav Menu*/
     #mobile-menu {
@@ -528,7 +560,6 @@ span {
 
     .attributes {
         padding-left: 15px;
-        border: 1px solid red;
     }
 
     .profile-pic {
