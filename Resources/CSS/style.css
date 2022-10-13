@@ -389,7 +389,7 @@ span {
     padding: 10%;
     display: grid;
     place-items: center;
-    background-color: rgba(11, 168, 168, 0.712);
+    background-color: rgba(11, 168, 168, 0.85);
     position: absolute;
     top: 50%;
     left: 50%;
