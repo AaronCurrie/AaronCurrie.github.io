@@ -201,12 +201,14 @@ span {
 
 .skill p {
     width: 15%;
+    font-weight: 700;
 }
 
 .skill {
     display: flex;
     align-items: center;
     width: 100%;
+    gap: 10px;
 }
 
 
@@ -215,8 +217,9 @@ span {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 80%;
     gap: 5px;
+    background-color: rgb(236, 236, 236);
 }
 
 .bar {
@@ -228,7 +231,7 @@ span {
 
 #css {width: 70%;}
 #html {width: 70%;}
-#js {width: 90%;}
+#js {width: 85%;}
 #node {width: 60%;}
 #express {width: 70%;}
 #sql {width: 60%;}
@@ -518,6 +521,14 @@ span {
 
     .skills {
         width: 100%;
+    }
+
+    .skill {
+        gap: 20px;
+    }
+
+    .skills p {
+        font-size: 0.8rem;
     }
 
     /*What am i working on*/
