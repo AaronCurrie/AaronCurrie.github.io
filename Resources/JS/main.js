@@ -26,16 +26,25 @@ menuButton.addEventListener("click", (e) => {
 
 function leftReveal() {
     var reveals = document.querySelectorAll(".reveal-left");
-  
+    var reveals1s = document.querySelectorAll(".reveal-left-1s")
     for (var i = 0; i < reveals.length; i++) {
       var windowHeight = window.innerHeight;
       var elementTop = reveals[i].getBoundingClientRect().top;
-      var elementVisible = 200;
+      var elementVisible = 250;
   
       if (elementTop < windowHeight - elementVisible) {
         reveals[i].classList.add("active");
       }
     }
+    for (var i = 0; i < reveals1s.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals1s[i].getBoundingClientRect().top;
+        var elementVisible = 250;
+    
+        if (elementTop < windowHeight - elementVisible) {
+          reveals1s[i].classList.add("active");
+        }
+      }
   }
 
 

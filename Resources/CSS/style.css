@@ -68,7 +68,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     z-index: 10;
     height: 8vh;
     border-bottom: 2px solid var(--main-blue);
@@ -208,7 +208,7 @@ span {
 }
 
 .text {
-    transition: 1s 0.5s all ease;
+    transition: 0.7s 1s linear;
 }
 
 .working {
@@ -235,9 +235,8 @@ span {
 
 .profile-pic {
     color: white;
-    transition: 0.2s linear;
     position: relative;
-    transition: 1s 1s all ease;
+    transition: 0.7s 3.5s linear;
   }
 
 .me .info {
@@ -263,7 +262,7 @@ span {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    transition: 1s 1s all ease;
+    transition: 0.7s 3.5s linear;
 }
 
 .skill p {
@@ -291,7 +290,7 @@ span {
 
 .growBars {
     width: 80%;
-    transition: 1s 2s;
+    transition: 1s 4.5s;
 }
 
 .bar {
@@ -321,7 +320,7 @@ span {
 
 .portfolio {
     padding: 5% 0;
-    gap: 10px;
+    gap: 40px;
     width: 100%;
     text-align: left;
     background-color: rgb(236, 236, 236);
@@ -345,7 +344,7 @@ span {
     place-items: center;
     padding: 10px;
     overflow: hidden;
-    transition: 1s 0.5s linear;
+    transition: 0.7s 1s linear;
 }
 
 .visual img {
@@ -364,7 +363,7 @@ span {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    transition: 1s 0.5s linear;
+    transition: 0.7s 1s linear;
     height: fit-content;
 }
 
@@ -431,7 +430,6 @@ span {
     display: grid;
     place-items: center;
     color: white;
-    transition: 1s 0.5s all ease;
 }
 .hexagon::before, .hexagon::after {
     content:"";
@@ -495,7 +493,6 @@ span {
 
 .group {
     width: 33%;
-    transition: 1s 0.5s linear;
 }
 
 /*Mobile menu*/
@@ -539,6 +536,17 @@ span {
     opacity: 1;
 }
 
+.reveal-left-1s{
+    transform: translateX(-150px);
+    opacity: 0;
+    transition: 0.7s 0.5s linear;
+}
+  
+.reveal-left-1s.active{
+    transform: translateX(0);
+    opacity: 1;
+}
+
 .reveal-right{
     transform: translateX(150px);
     opacity: 0; 
@@ -547,6 +555,29 @@ span {
 .reveal-right.active{
     transform: translateX(0);
     opacity: 1;
+}
+
+.one {
+    transition: 0.7s 1s linear;
+}
+.two {
+    transition: 0.7s 1.5s linear;
+}
+.three {
+    transition: 0.7s 2s linear;
+}
+.four {
+    transition: 0.7s 2.5s linear;
+}
+
+.books {
+    transition: 0.5s 2s linear;
+}
+.projects {
+    transition: 0.5s 1.5s linear;
+}
+.learnings {
+    transition: 0.5s 1s linear;
 }
 /*Tablet and below settings*/
 @media only screen and (max-width: 768px){
