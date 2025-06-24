@@ -1,16 +1,20 @@
 .main {
   height: 100vh;
   width: 100vw;
-  position: relative;
+  max-height: 100vh;
 }
 
 .map {
   width: 100%;
-  position: relative;
+  height: 100%;
+  object-fit: cover;
 }
 
 .section {
   position: relative;
+  border: 1px solid rgb(0, 43, 93);
+  height: 100%;
+  width: 100%;
 }
 
 .overlay {
@@ -19,98 +23,4 @@
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-.pin {
-  position: absolute;
-  width: 4vw;
-  height: 4vw;
-  background-color: rgb(152, 213, 246);
-  border: 5px solid rgb(0, 43, 93);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.pin:hover {
-  cursor: pointer;
-}
-
-.pin:active {
-  transform: translate(-50%, -50%) scale(0.9);
-}
-
-.mission1 {
-  top: 50%;
-  left: 50%;
-}
-
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(2);
-    opacity: 0;
-  }
-}
-
-.pin::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 4vw;
-  height: 4vw;
-  background-color: rgb(152, 213, 246);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  animation: pulse 2s infinite;
-  opacity: 0;
-}
-
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Ensure it appears above other elements */
-}
-
-.modalContent {
-  background-color: rgb(0, 43, 93); /* White background for the modal */
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-  border: 5px solid rgb(152, 213, 246);
-  max-width: 500px; /* Limit the width of the modal */
-  width: 90%; /* Responsive width */
-  text-align: left; /* Center-align content */
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
-  gap: 10px;
-}
-
-.launchButton {
-  margin: auto 20px;
-  background-color: rgb(0, 172, 118);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: 4px 4px 0px 1px rgb(255, 255, 255);
-  transition: 0.1s ease-in-out;
-  transform: translate(0, 0);
-}
-
-.launchButton:active {
-  transform: translate(2px, 2px); /* Moves the button down */
-  box-shadow: none/* Adjust shadow to simulate depth */
 }
