@@ -1,5 +1,5 @@
 /* Overlay container to position the lights */
-.animation-overlay {
+.animationOverlay {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -7,7 +7,7 @@
 }
 
 /* Flashing lights */
-.flashing-light {
+.flashingLight {
     position: absolute;
     width: 10px;
     height: 10px;
@@ -30,7 +30,7 @@
 }
 
 /* Zipping light */
-.zipping-light-right {
+.zippingLightRight {
     position: absolute;
     width: 5px;
     height: 5px;
@@ -39,7 +39,7 @@
     animation: zipRight 4s linear infinite;
 }
 
-.zipping-light-left {
+.zippingLightLeft {
     position: absolute;
     width: 5px;
     height: 5px;

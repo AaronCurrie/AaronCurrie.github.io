@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./animations.css";
+import styles from "./animated-lights.module.css";
 
-const Animations = () => {
+const AnimatedLights = () => {
     const [flashingLights, setFlashingLights] = useState([]);
     const [zippingLightPosition, setZippingLightPosition] = useState({
         left: "50%",
@@ -37,23 +37,23 @@ const Animations = () => {
     }, []);
 
     return (
-        <div aria-hidden='true' inert className="animation-overlay">
+        <div aria-hidden='true' inert className={styles.animationOverlay}>
             {flashingLights.map((light) => (
                 <div
                     key={light.id}
-                    className="flashing-light"
+                    className={styles.flashingLight}
                     style={{ left: light.left, top: light.top }}
                 ></div>
             ))}
             <div
-                className="zipping-light-right"
+                className={styles.zippingLightRight}
                 style={{
                     left: zippingLightPosition.left,
                     top: zippingLightPosition.top,
                 }}
             ></div>
             <div
-                className="zipping-light-left"
+                className={styles.zippingLightLeft}
                 style={{
                     left: zippingLightPosition.left,
                     top: zippingLightPosition.top,
@@ -63,4 +63,4 @@ const Animations = () => {
     );
 };
 
-export default Animations;
+export default AnimatedLights;

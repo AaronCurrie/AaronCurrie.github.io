@@ -6,7 +6,7 @@ import { useState } from "react";
 import MissionModal from "./components/home-page/mission-modal";
 import MissionPin from "./components/home-page/mission-pin";
 import Briefing from "./components/home-page/briefing";
-import Animations from "./components/animations";
+import AnimatedLights from "./components/animated-lights/animated-lights";
 
 export default function Home() {
   const [currentMission, setCurrentMission] = useState(null);
@@ -31,7 +31,7 @@ export default function Home() {
           {missions.map((mission) => {
             return <MissionPin key={mission.id} handleClick={handleMissionClick} mission={mission} />
           })}
-          <Animations />
+          <AnimatedLights />
         </div>
       </section>
     </main>
