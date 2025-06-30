@@ -1,16 +1,17 @@
 'use client';
 import styles from "./page.module.css";
-import React from "react";
+import React, { useContext, useState } from "react";
 import{ missions } from "../constants/missions";
-import { useState } from "react";
 import MissionModal from "./components/home-page/mission-modal";
 import MissionPin from "./components/home-page/mission-pin";
 import Briefing from "./components/home-page/briefing";
 import AnimatedLights from "./components/animated-lights/animated-lights";
+import UserContext from "../context/user";
 
 export default function Home() {
   const [currentMission, setCurrentMission] = useState(null);
   const [briefing, setBriefing] = useState(true);
+  const pages = useContext(UserContext);
 
   const handleMissionClick = (mission) => {
     if(currentMission) {
@@ -23,6 +24,14 @@ export default function Home() {
   const handleBriefingClick = () => {
     setBriefing(!briefing);
   }
+
+  const handleSkipMissions = () => {
+    missions.forEach((mission) => {
+      updatePageStatus(mission.link, true);
+    });
+  };
+
+  console.log(pages, 'pages')
 
   return (
     <main className={styles.main}>
@@ -38,6 +47,7 @@ export default function Home() {
           {missions.map((mission) => {
             return <MissionPin key={mission.id} handleClick={handleMissionClick} mission={mission} />
           })}
+          <button onClick={handleSkipMissions}>Quick Access</button>
           <AnimatedLights />
         </div>
       </section>
