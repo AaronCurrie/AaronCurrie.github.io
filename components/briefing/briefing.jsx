@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './briefing.module.css';
+import Button from '../button/button';
 
 const Briefing = ({handleClick, briefing, children}) => {
     if (!briefing) {
@@ -10,7 +11,7 @@ const Briefing = ({handleClick, briefing, children}) => {
             <div onClick={(e) => e.stopPropagation()} className={styles.briefing}>
                 <div className={styles.briefingHeader}>
                     <img src='/profilepic.png' alt="Profile" className={styles.profilePic} />
-                    <button onClick={handleClick}>Close</button>
+                    <Button action={handleClick} label={'Close'} type='button' />
                 </div>
                 <div className={styles.briefingContent}>
                     {children}
