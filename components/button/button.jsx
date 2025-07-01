@@ -3,13 +3,16 @@ import styles from './button.module.css';
 import Link from 'next/link';
 
 const Button = ({ label, action, type = 'button', disabled=false, recentUnlock=false}) => {
+    if(type === 'a') {
+        return <Link href={action} className={`${styles.button} ${styles.defaultButton} ${disabled && styles.disabled} ${!disabled && recentUnlock && styles.unlockAnimation}`}>{label}</Link>
+    }
     return (
         <button
-            className={`${styles.button} ${!disabled && recentUnlock && styles.unlockAnimation}`}
-            onClick={type === 'button'? action : null}
+            className={`${styles.button} ${type === 'icon' ? styles.iconButton : styles.defaultButton}`}
+            onClick={action}
             disabled={disabled}
         >
-            {type === 'a'? <Link href={action}>{label}</Link> : <span>{label}</span>}
+            {label}
         </button>
     );
 };

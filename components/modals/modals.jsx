@@ -1,5 +1,5 @@
 import Button from "../button/button";
-import styles from "./mission-modal.module.css";
+import styles from "./modals.module.css";
 import React from "react";
 
 const MissionModal = ({closeModal, currentMission}) => {
@@ -15,4 +15,14 @@ const MissionModal = ({closeModal, currentMission}) => {
     );
 }
 
-export default MissionModal;
+const Modal = ({children, closeModal}) => {
+    return (
+        <div className={styles.modalOverlay} onClick={closeModal}>
+            <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+                {children}
+            </div>
+        </div>
+    );
+}
+
+export {MissionModal, Modal};

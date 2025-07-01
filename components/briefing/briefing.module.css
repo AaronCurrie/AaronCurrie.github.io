@@ -29,7 +29,18 @@
     width: 100%;
 }
 
-@media (max-width: 640px) {
+.briefingButton {
+    display: 'hidden';
+}
+
+@media (max-width: 880px) {
+    .briefingButton {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 999;
+    }
+
     .briefing {
         top: 10%;
         height: 80%;
@@ -68,6 +79,7 @@
       .briefingHeader button {
         display: inline;
     }
+
 }
 
 @keyframes fadeIn {

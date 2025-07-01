@@ -2,7 +2,7 @@
 import styles from "./page.module.css";
 import React, { useContext, useState } from "react";
 import{ missions } from "../constants/missions";
-import MissionModal from "../components/home-page/mission-modal";
+import {MissionModal} from "../components/modals/modals";
 import MissionPin from "../components/home-page/mission-pin";
 import Briefing from "../components/briefing/briefing";
 import AnimatedLights from "../components/animated-lights/animated-lights";

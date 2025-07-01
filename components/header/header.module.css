@@ -16,19 +16,19 @@
     gap: 20px;
 }
 
-.button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background: linear-gradient(0deg, rgba(152, 213, 246, 0.40), rgb(0, 43, 93, 0.40));
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+@media (max-width: 880px) {
+    .nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        padding: 100px 50px;
+    }
 
-.button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 5px 20px rgba(152, 213, 246, 0.60), 0 0 40px rgb(0, 43, 93, 0.60);
+    .desktopNav {
+        display: none;
+    }
+
+    .header {
+        width: max-content;
+    }
 }

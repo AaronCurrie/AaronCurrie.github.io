@@ -1,0 +1,71 @@
+  
+  .menu {
+    display: none;
+  }
+  
+  @media (max-width: 880px) {
+    .hamburger-lines {
+      height: 26px;
+      position: relative;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .hamburger-lines .line {
+      display: block;
+      height: 4px;
+      width: 100%;
+      border-radius: 10px;
+      background: linear-gradient(0deg, rgba(152, 213, 246, 0.90), rgb(0, 43, 93, 0.90));
+    }
+  
+    .menu:hover .line {
+      box-shadow: 0 0 20px 2px rgba(152, 213, 246, 0.6), 0 0 40px rgb(0, 43, 93, 0.6);
+    }
+    
+    .hamburger-lines .line1 {
+      transform-origin: 0% 0%;
+      transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .hamburger-lines .line2 {
+      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .hamburger-lines .line3 {
+      transform-origin: 0% 100%;
+      transition: 
+      transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+  
+    .line1cross{
+      transform-origin: 0% 0%;
+      transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+      transform: rotate(45deg);
+    }
+    
+    .line2cross{
+      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+      transform: scaleY(0);
+    }
+    
+    .line3cross{
+      transform-origin: 0% 100%;
+      transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+      transform: rotate(-45deg);
+    }
+  
+    .menu {
+      display: block;
+      border: none;        
+      width: 32px;
+      height: 26px;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  
+    .menu:hover {
+      cursor: pointer;
+    }
+  }
