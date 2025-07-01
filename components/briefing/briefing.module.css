@@ -1,12 +1,12 @@
 .briefing {
     position: absolute;
-    top: 2%;
-    left: 2%;
+    top: 100px;
+    left: 20px;
     min-height: 200px;
-    width: 95%;
+    width: calc(100% - 60px);
     display: flex;
     padding: 20px;
-    gap: 10px;
+    gap: 40px;
     border: 1px solid rgb(0, 43, 93);
     background-color: rgba(1, 26, 55, 0.4);
     z-index: 10;
@@ -25,7 +25,7 @@
 .briefingContent {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
 }
 

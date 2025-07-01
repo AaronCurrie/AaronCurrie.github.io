@@ -1,3 +1,4 @@
+import Button from "../button/button";
 import styles from "./mission-modal.module.css";
 import React from "react";
 
@@ -8,7 +9,7 @@ const MissionModal = ({closeModal, currentMission}) => {
             <h2>Mission: {currentMission.missionTitle}</h2>
             <h3>Section: {currentMission.section}</h3>
             <p>{currentMission.description}</p>
-            <a className={styles.launchButton}>Launch Mission</a>
+            <Button type='a' action={currentMission.link} label='Launch Mission' />
         </div>
         </div>
     );

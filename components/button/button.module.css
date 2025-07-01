@@ -1,0 +1,53 @@
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(0deg, rgba(152, 213, 246, 0.40), rgb(0, 43, 93, 0.40));
+    color: white;
+    width: 150px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(152, 213, 246, 0.30), 0 0 40px rgb(0, 43, 93, 0.30);
+}
+
+.button:disabled {
+    background: rgb(0, 2, 13);
+    cursor: not-allowed;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.2); /* Faded text */
+}
+
+.button:disabled a {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.button:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.button:disabled::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-image: url('/lock.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 47, 82, 0.5);
+    z-index: 2;
+    cursor: not-allowed;
+    box-shadow: 0 0 15px 5px rgba(0, 62, 82, 0.3);
+    border-radius: 50%;
+}

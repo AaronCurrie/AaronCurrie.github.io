@@ -4,8 +4,6 @@ import { useContext } from "react";
 
 
 export default function AboutMe() {
-    const { pages } = useContext(UserContext);
-    console.log("About Me Page Loaded", pages);
     return (
         <main>
             <h1>About Me</h1>

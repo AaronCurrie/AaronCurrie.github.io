@@ -2,11 +2,12 @@
 import styles from "./page.module.css";
 import React, { useContext, useState } from "react";
 import{ missions } from "../constants/missions";
-import MissionModal from "./components/home-page/mission-modal";
-import MissionPin from "./components/home-page/mission-pin";
-import Briefing from "./components/home-page/briefing";
-import AnimatedLights from "./components/animated-lights/animated-lights";
+import MissionModal from "../components/home-page/mission-modal";
+import MissionPin from "../components/home-page/mission-pin";
+import Briefing from "../components/briefing/briefing";
+import AnimatedLights from "../components/animated-lights/animated-lights";
 import UserContext from "../context/user";
+import Button from "@/components/button/button";
 
 export default function Home() {
   const [currentMission, setCurrentMission] = useState(null);
@@ -25,12 +26,6 @@ export default function Home() {
     setBriefing(!briefing);
   }
 
-  const handleSkipMissions = () => {
-    missions.forEach((mission) => {
-      updatePageStatus(mission.link, true);
-    });
-  };
-
   console.log(pages, 'pages')
 
   return (
@@ -43,11 +38,11 @@ export default function Home() {
             <h3>Profile: AARON CURRIE</h3>
             <p>Welcome to the profile, your mission is to do research and reconsience on the target in question, to asses if they are what we need for the next msision. Complete the tasks to build a dossier on the target.</p>
             <p>Click the quick access button to skip the missions to assess the portfolio immediately.</p>
+            <Button action={() => {}} label={'Quick Access'} />
           </Briefing>
           {missions.map((mission) => {
             return <MissionPin key={mission.id} handleClick={handleMissionClick} mission={mission} />
           })}
-          <button onClick={handleSkipMissions}>Quick Access</button>
           <AnimatedLights />
         </div>
       </section>

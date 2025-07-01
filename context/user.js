@@ -1,17 +1,17 @@
 'use client';
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 
 const UserContext = createContext();
 
-export const UserProvider = ({ children }) => {
+export const UserProvider = ({ children, value }) => {
     console.log("UserProvider initialized");
-    const [pages, setPages] = useState([
-        { mission: 'about', completed: false },
-        { mission: 'skills', completed: false },
-        { mission: 'experience', completed: false },
-        { mission: 'portfolio', completed: false },
-        { mission: 'cv', completed: false },
-    ]);
+    // const [pages, setPages] = useState([
+    //     { mission: 'about', completed: false },
+    //     { mission: 'skills', completed: false },
+    //     { mission: 'experience', completed: false },
+    //     { mission: 'portfolio', completed: false },
+    //     { mission: 'cv', completed: false },
+    // ]);
 
     // const updatePageStatus = (mission, completed) => {
     //     setPages((prevPages) =>
@@ -22,7 +22,7 @@ export const UserProvider = ({ children }) => {
     // };
 
     return (
-        <UserContext.Provider value={pages}>
+        <UserContext.Provider value={value}>
             {children}
         </UserContext.Provider>
     );
