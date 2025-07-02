@@ -15,12 +15,7 @@ export default function Home() {
   const { mobile } = useScreenSize()
 
   useEffect(() => {
-    console.log("Mobile state changed:", mobile);
-    if(mobile) {
-      setBriefing(false);
-    } else {
-      setBriefing(true);
-    }
+    setBriefing(true);
   }, [mobile])
 
   const handleMissionClick = (mission) => {
