@@ -1,6 +1,6 @@
 'use client';
 import styles from "./page.module.css";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import{ missions } from "../constants/missions";
 import {MissionModal} from "../components/modals/modals";
 import MissionPin from "../components/home-page/mission-pin";
