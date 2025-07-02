@@ -1,3 +1,4 @@
+import { UserProvider } from "@/context/user";
 import "./globals.css";
 import Header from "@/components/header/header";
 
@@ -7,12 +8,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+  console.log("RootLayout initialized");
   return (
     <html lang="en">
       <body>
+        <UserProvider>
           <Header />
           {children}
-        
+        </UserProvider>
+
       </body>
     </html>
   );

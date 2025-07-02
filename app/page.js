@@ -1,18 +1,27 @@
 'use client';
 import styles from "./page.module.css";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import{ missions } from "../constants/missions";
 import {MissionModal} from "../components/modals/modals";
 import MissionPin from "../components/home-page/mission-pin";
 import Briefing from "../components/briefing/briefing";
 import AnimatedLights from "../components/animated-lights/animated-lights";
-import UserContext from "../context/user";
 import Button from "@/components/button/button";
+import useScreenSize from "./hooks/screen-size";
 
 export default function Home() {
   const [currentMission, setCurrentMission] = useState(null);
   const [briefing, setBriefing] = useState(true);
-  const pages = useContext(UserContext);
+  const { mobile } = useScreenSize()
+
+  useEffect(() => {
+    console.log("Mobile state changed:", mobile);
+    if(mobile) {
+      setBriefing(false);
+    } else {
+      setBriefing(true);
+    }
+  }, [mobile])
 
   const handleMissionClick = (mission) => {
     if(currentMission) {
@@ -25,8 +34,6 @@ export default function Home() {
   const handleBriefingClick = () => {
     setBriefing(!briefing);
   }
-
-  console.log(pages, 'pages')
 
   return (
     <main className={styles.main}>
