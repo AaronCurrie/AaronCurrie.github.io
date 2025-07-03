@@ -9,7 +9,7 @@ const MissionModal = ({closeModal, currentMission}) => {
             <h2>Mission: {currentMission.missionTitle}</h2>
             <h3>Section: {currentMission.section}</h3>
             <p>{currentMission.description}</p>
-            <Button type='a' action={currentMission.link} label='Launch Mission' />
+            <Button type='a' href={currentMission.link} label='Launch Mission' />
         </div>
         </div>
     );
@@ -25,4 +25,12 @@ const Modal = ({children, closeModal}) => {
     );
 }
 
-export {MissionModal, Modal};
+const ModalOverlay = ({children, closeModal}) => {
+    return (
+        <div className={styles.modalOverlay} onClick={closeModal}>
+            {children}
+        </div>
+    );
+}
+
+export {MissionModal, Modal, ModalOverlay};

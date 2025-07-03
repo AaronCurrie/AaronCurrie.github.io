@@ -1,16 +1,26 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './header.module.css';
 import Button from '../button/button';
 import { usePathname } from 'next/navigation';
 import MobileMenu from './mobile-menu';
-import { Modal } from '../modals/modals';
+import { Modal, ModalOverlay } from '../modals/modals';
 import { useUserContext } from '@/context/user';
+import useScreenSize from '@/app/hooks/screen-size';
+import QuickAccessButton from '../button/quick-access-button';
 
 const Header = () => {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false)
-    const { pages } = useUserContext();
+    const { pages, updatePageStatus } = useUserContext();
+    const { mobile } = useScreenSize()
+
+    useEffect(() => {
+        if(!mobile) {
+            setIsOpen(false)
+        }
+    }, [mobile]);
+
     const handleBurgerClick = () => {
         if(isOpen === false) {
             setIsOpen(true)
@@ -18,25 +28,22 @@ const Header = () => {
             setIsOpen(false)
         }
     }
+
+    const closeBurgerMenu =() => {
+        setIsOpen(false);
+    }
     
     return (
         <header className={styles.header}>
-            <MobileMenu handleBurgerClick={handleBurgerClick} isOpen={isOpen}/> 
-            <nav className={`${styles.nav} ${styles.desktopNav}`}>
-                            {pages.map((page, index) => {
-                                if(pathname === page.link) return null
-                                return <Button key={index} type='a' action={page.link} label={page.mission} disabled={!page.completed} recentUnlock={page.recentUnlock} />
-                            })}
+            <MobileMenu handleBurgerClick={handleBurgerClick} isOpen={isOpen}/>
+            {isOpen && <ModalOverlay closeModal={handleBurgerClick} />} 
+            <nav className={`${styles.nav} ${isOpen? styles.mobileMenu : styles.desktopNav}`}>
+                {pages.map((page, index) => {
+                    if(pathname === page.link) return null
+                    return <Button key={index} type='a' href={page.link} action={closeBurgerMenu} label={page.mission} disabled={!page.completed} recentUnlock={page.recentUnlock} />
+                })}
+                <QuickAccessButton pages={pages} updatePageStatus={updatePageStatus} />
             </nav>
-            {isOpen && 
-                (<Modal isOpen={isOpen} closeModal={handleBurgerClick}>
-                    <nav className={styles.nav}>
-                            {pages.map((page, index) => {
-                                if(pathname === page.link) return null
-                                return <Button key={index} type='a' action={page.link} label={page.mission} disabled={!page.completed} recentUnlock={page.recentUnlock} />
-                            })}
-                    </nav>
-                </Modal>)}
         </header>
     );
 };

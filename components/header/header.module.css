@@ -19,13 +19,26 @@
 @media (max-width: 880px) {
     .nav {
         flex-direction: column;
-        width: 100%;
         gap: 20px;
-        padding: 100px 50px;
+        padding: 100px 30px;
+        transition: transform 0.3s ease-in-out;
+        transform-origin: left;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 340px;
+        height: 100%;
+        background-color: rgba(1, 26, 55, 0.7);
+        box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.5);
+        z-index: 200;
     }
 
+    .mobileMenu {
+        transform: scaleX(1);
+    }
+    
     .desktopNav {
-        display: none;
+        transform: scaleX(0);
     }
 
     .header {

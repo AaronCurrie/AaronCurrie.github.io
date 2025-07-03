@@ -1,12 +1,12 @@
 'use client';
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const UserContext = createContext();
 
-export const UserProvider = ({ children, value }) => {
+export const UserProvider = ({ children }) => {
     console.log("UserProvider initialized");
     const [pages, setPages] = useState([
-        { mission: 'Home', link: '/', completed: true, recentUnlock: false },
+        { mission: 'Home', link: '/', completed: false, recentUnlock: false },
         { mission: 'About Me', link: '/about-me', completed: false, recentUnlock: false },
         { mission: 'Experience', link: '/experience', completed: false, recentUnlock: false },
         { mission: 'Portfolio', link: '/portfolio', completed: false, recentUnlock: false },
@@ -17,9 +17,14 @@ export const UserProvider = ({ children, value }) => {
     const updatePageStatus = (link, completed, recentUnlock) => {
         setPages((prevPages) =>
             prevPages.map((page) =>
-                page.link === link ? { ...page, completed, recentUnlock} : {...page,}
-            )
-        );
+                page.link === link ? { ...page, completed, recentUnlock} : {...page}
+            ))
+        setTimeout(() => {
+            setPages((prevPages) =>
+                prevPages.map((page) => {return {...page, recentUnlock: false }}
+                )
+            );
+        }, 1000)
     };
 
     return (

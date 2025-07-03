@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 99;
   }
   
   .modalContent {
@@ -46,26 +46,5 @@
     transform: translate(2px, 2px);
     box-shadow: none;
   }
-
-  .modal {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 300px;
-    height: 100%;
-    background-color: rgba(1, 26, 55, 0.7);
-    box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.5);
-    z-index: 200;
-    animation: slideIn 0.3s ease-in-out forwards;
-  }
-
-    @keyframes slideIn {
-      from {
-        left: -100%;
-      }
-      to {
-        left: 0;
-      }
-    }
 
     

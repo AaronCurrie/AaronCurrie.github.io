@@ -15,7 +15,7 @@
 }
 
 .defaultButton {
-    min-width: 150px;
+    min-width: 120px;
     font-weight: bold;
     padding: 15px;
     font-size: 0.9rem;
@@ -63,6 +63,16 @@
     animation: unlock 1s ease-in-out forwards;
 }
 
+.fadeOut {
+    animation: fadeOutToNone 0.3s ease-in-out forwards;
+}
+
+@media (max-width: 880px) {
+    .defaultButton {
+        min-width: 270px;
+    }
+ }
+
 
 @keyframes unlock {
     0% {
@@ -82,5 +92,15 @@
     }
     100% {
         background: linear-gradient(0deg, rgba(152, 213, 246, 0.40), rgb(0, 43, 93, 0.40));
+    }
+}
+
+@keyframes fadeOutToNone {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
     }
 }

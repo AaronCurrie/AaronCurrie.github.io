@@ -41,3 +41,7 @@ a {
 .main-offset {
   padding-top: 350px;
 }
+
+.display-none {
+  display: none;
+}
