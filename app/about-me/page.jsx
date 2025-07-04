@@ -1,14 +1,22 @@
+import CollapsableSection from '@/components/collapsable-section/collapsable-section';
 import styles from './page.module.css'
 
 export default function AboutMe() {
     return (
-        <main className="main-offset">
-            <section className={styles.section}>
-                <img/>
-                <h1>About me</h1>
-                <h2>Highlights</h2>
-                <p>Quick Summary</p>
+        <main className={`main-offset ${styles.profileMain}`}>
+            <section className={`${styles.section} ${styles.profileHeader}`}>
+                <img src='/profilepic.png'/>
+                <div className='flex-col'>
+                    <h1>Dossier: Aaron Currie</h1>
+                    <h2>Agent Code: AC1178</h2>
+                    <p>Full-Stack Software Engineer | React & Next.js | Google Cloud Certified</p>
+                </div>
             </section>
+            <CollapsableSection title='Bio'>
+                <p>Agent is a full-stack developer with a strong focus on modern frontend frameworks and growing experience in cloud-native backend systems. On previous missions they built accessible, modular, production-ready features using React, Next.js, and GCP - contributing across the full software lifecycle from infrastructure to UI.</p>
+                <p>They write clean, maintainable code, mentoring junior developers, and continuously levelling up skills whether it’s leading a project, improving pipelines with Terraform, or implementing scalable architecture.</p>
+                <p>Originally from a non-tech background, They bring a grounded, hands-on approach to building software that works.</p>
+            </CollapsableSection>
             <section className={styles.section}>
                 <h2>Experience</h2>
                 <div>

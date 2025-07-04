@@ -1,0 +1,29 @@
+.profileMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.section {
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px 40px;
+    background-color: var(--background-blue);
+    border: 1px solid var(--border-blue);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.profileHeader img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--border-blue);
+}

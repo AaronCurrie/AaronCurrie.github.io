@@ -17,6 +17,7 @@ export default function Home() {
   const { pages, updatePageStatus } = useUserContext();
 
   useEffect(() => {
+    console.log(mobile)
     if(!mobile) {
       setBriefing(true);
     } else if(pages.find((page) => page.link === '/').completed && mobile) {

@@ -5,7 +5,7 @@ const useScreenSize = () => {
     const [screenSize, setScreenSize] = useState({
         width: typeof window !== 'undefined' ? window.innerWidth : 0,
         height: typeof window !== 'undefined' ? window.innerHeight : 0,
-        mobile: typeof window !== 'undefined' ? window.innerWidth < 880 : false,
+        mobile: typeof window !== 'undefined' ? window.innerWidth < 881 : false,
     });
 
     useEffect(() => {
@@ -14,7 +14,7 @@ const useScreenSize = () => {
                 setScreenSize({
                     width: window.innerWidth,
                     height: window.innerHeight,
-                    mobile: window.innerWidth < 880,
+                    mobile: window.innerWidth < 881,
                 });
             }
         };

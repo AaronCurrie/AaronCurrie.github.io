@@ -1,0 +1,72 @@
+.collapsableSection {
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px 40px;
+    background-color: var(--background-blue);
+    border: 1px solid var(--border-blue);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    height: 50px;
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+
+.header:hover, .header:hover button {
+    color: var(--primary-blue);
+}
+
+.header button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+
+.reveal {
+    transform-origin: top;
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.hide {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+}
+
+.vis {
+    height: min-content;
+}
+
+.novis {
+    height: 0;
+    overflow: hidden;
+}
+
+.rotate0 {
+    transform: rotate(0deg);
+}
+
+.rotate180 {
+    transform: rotate(180deg);
+}
+
+@keyframes slideDown {
+    from {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
