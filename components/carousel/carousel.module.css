@@ -35,6 +35,19 @@
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
+.imageContainer.right:before, .imageContainer.left:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 225, 255, 0.202);
+    opacity: 0;
+    animation: smallPulse 1.5s infinite;
+    z-index: -1;
+}
+
 .image {
     width: max-content;
     height: 100%;
@@ -52,6 +65,7 @@
     transform: translateX(-90%) scale(0.75);
     opacity: 1;
     z-index: 1;
+    cursor: pointer;
 }
 
 .imageContainer.hiddenRight {
@@ -64,6 +78,7 @@
     transform: translateX(90%) scale(0.75);
     opacity: 1;
     z-index: 1;
+    cursor: pointer;
 }
 
 .imageContainer.hiddenLeft {
@@ -83,12 +98,12 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -97,6 +112,19 @@
     z-index: 3;
 }
 
+.navButton:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
+    background-color: rgba(0, 112, 125, 0.202);
+    opacity: 0;
+    animation: bigPulse 1.5s infinite;
+    z-index: 0;
+}
 .navButton:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
@@ -110,6 +138,7 @@
 }
 
 @media (max-width: 880px) {
+
     .carousel {
         height: 600px;
     }
@@ -124,5 +153,35 @@
     .image {
         width: 100%;
         height: 100%;
+    }
+}
+
+@keyframes smallPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+@keyframes bigPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
     }
 }

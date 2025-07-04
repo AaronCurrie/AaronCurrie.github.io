@@ -4,6 +4,8 @@ import styles from './carousel.module.css';
 
 const Carousel = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
 
     const prevSlide = () => {
         setCurrentIndex((prevIndex) =>
@@ -17,8 +19,39 @@ const Carousel = ({ images }) => {
         );
     };
 
+    const handleTouchStart = (e) => {
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+
+        const swipeDistance = touchStart - touchEnd;
+
+        // Minimum swipe distance to trigger a slide change
+        const minSwipeDistance = 50;
+
+        if (swipeDistance > minSwipeDistance) {
+            prevSlide(); // Swipe left
+        } else if (swipeDistance < -minSwipeDistance) {
+            nextSlide(); // Swipe right
+        }
+
+        // Reset touch values
+        setTouchStart(null);
+        setTouchEnd(null);
+    };
+
     return (
-        <div className={styles.carousel}>
+        <div className={styles.carousel}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        >
             <button className={styles.navButton} onClick={prevSlide}>
                 &#8249;
             </button>
@@ -39,8 +72,15 @@ const Carousel = ({ images }) => {
                         position = 'hidden';
                     }
 
+                    let onClick = null;
+                    if (position === 'right') {
+                        onClick = nextSlide;
+                    } else if (position === 'left') {
+                        onClick = prevSlide;
+                    }
+
                     return (
-                        <div key={index} className={`${styles.imageContainer} ${styles[position]}`}>
+                        <div key={index} onClick={onClick} className={`${styles.imageContainer} ${styles[position]}`}>
                         <img
                             key={index}
                             src={image}
