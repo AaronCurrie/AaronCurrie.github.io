@@ -1,0 +1,16 @@
+export const qestrArray = [
+    './questr/questr1.jpg',
+    './questr/questr2.jpg',
+    './questr/questr3.jpg',
+    './questr/questr4.jpg',
+    './questr/questr5.jpg',
+    './questr/questr6.jpg',
+    './questr/questr7.jpg',
+    './questr/questr8.jpg',
+    './questr/questr9.jpg',
+    './questr/questr10.jpg',
+    './questr/questr11.jpg',
+    './questr/questr12.jpg',
+    './questr/questr13.jpg',
+    './questr/questr14.jpg',
+]

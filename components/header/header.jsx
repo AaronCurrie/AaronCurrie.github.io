@@ -12,6 +12,7 @@ import QuickAccessButton from '../button/quick-access-button';
 const Header = () => {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false)
+    const [scrolled, setScrolled] = useState(false);
     const { pages, updatePageStatus } = useUserContext();
     const { mobile } = useScreenSize()
 
@@ -20,6 +21,21 @@ const Header = () => {
             setIsOpen(false)
         }
     }, [mobile]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const handleBurgerClick = () => {
         if(isOpen === false) {
@@ -34,7 +50,7 @@ const Header = () => {
     }
     
     return (
-        <header className={styles.header}>
+        <header className={`${styles.header} ${scrolled? styles.filled : styles.unfilled}`}>
             <MobileMenu handleBurgerClick={handleBurgerClick} isOpen={isOpen}/>
             {isOpen && <ModalOverlay closeModal={handleBurgerClick} />} 
             <nav className={`${styles.nav} ${isOpen? styles.mobileMenu : styles.desktopNav}`}>

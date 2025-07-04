@@ -1,0 +1,38 @@
+.imageGridContainer {
+    border: 1px solid var(--border-blue);
+    padding: 20px;
+    width: 100%;
+}
+
+.imageGrid {
+    display: flex;
+    border: 1px solid var(--border-blue);
+}
+
+.mainImage {
+    flex: 1;
+    width: 50%;
+    height: 100%;
+    aspect-ratio: 9/ 16;
+}
+
+.mainImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.gridContainer {
+    flex: 1;
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.gridImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}

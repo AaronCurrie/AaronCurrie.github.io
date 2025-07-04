@@ -4,16 +4,25 @@
     width: 100%;
     z-index: 1000;
     height: 100px;
-    background: rgba(0, 0, 0, 0.0);
     padding: 20px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background 0.3s ease-in-out;
 }
 
 .nav {
     display: flex;
     gap: 20px;
+}
+
+.filled {
+    background: rgba(0, 0, 0, 0.99);
+    border-bottom: 1px solid var(--border-blue);
+}
+
+.unfilled {
+    background: rgba(0, 0, 0, 0.0);
 }
 
 @media (max-width: 880px) {
@@ -35,6 +44,8 @@
 
     .mobileMenu {
         transform: scaleX(1);
+        background: rgba(0, 0, 0, 0.99);
+        border-right: 1px solid var(--border-blue);
     }
     
     .desktopNav {
@@ -42,6 +53,6 @@
     }
 
     .header {
-        width: max-content;
+        width: 100%;
     }
 }
