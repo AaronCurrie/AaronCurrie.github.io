@@ -43,7 +43,7 @@
 }
 
 .open {
-    max-height: 2000px;
+    max-height: 5000px;
     opacity: 1;
 }
 
@@ -58,4 +58,10 @@
 
 .rotate180 {
     transform: rotate(180deg);
+}
+
+@media (max-width: 880px) {
+    .collapsableSection {
+        padding: 10px 20px;
+    }
 }

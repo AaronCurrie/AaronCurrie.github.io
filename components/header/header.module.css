@@ -17,7 +17,7 @@
 }
 
 .filled {
-    background: rgba(0, 0, 0, 0.99);
+    background: rgb(1, 26, 55, 0.99);
     border-bottom: 1px solid var(--border-blue);
 }
 
@@ -37,14 +37,14 @@
         left: 0;
         width: 340px;
         height: 100%;
-        background-color: rgba(1, 26, 55, 0.7);
+        background-color: rgb(1, 26, 55, 0.99);
         box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.5);
         z-index: 200;
     }
 
     .mobileMenu {
         transform: scaleX(1);
-        background: rgba(0, 0, 0, 0.99);
+        background: rgb(1, 26, 55, 0.99);
         border-right: 1px solid var(--border-blue);
     }
     

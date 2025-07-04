@@ -27,3 +27,13 @@
     border-radius: 50%;
     border: 3px solid var(--border-blue);
 }
+
+@media (max-width: 880px) {
+    .profileHeader {
+        flex-direction: column;
+    }
+
+    .section {
+        padding: 20px 20px;
+    }
+}
