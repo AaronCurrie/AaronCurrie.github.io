@@ -1,0 +1,106 @@
+.button {
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(0deg, rgba(152, 213, 246, 0.40), rgb(0, 43, 93, 0.40));
+    color: white;
+    width: max-content;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    text-align: center;
+}
+
+.button:hover {
+    box-shadow: 0 5px 20px rgba(152, 213, 246, 0.30), 0 0 40px rgb(0, 43, 93, 0.30);
+}
+
+.defaultButton {
+    min-width: 120px;
+    font-weight: bold;
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+.iconButton {
+    height: 45px;
+    width: 45px;
+    font-size: 2rem;
+}
+
+.disabled {
+    background: rgb(0, 2, 13);
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.disabled:hover {
+    transform: none;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.disabled::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-image: url('/lock.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 47, 82, 0.5);
+    z-index: 2;
+    cursor: not-allowed;
+    box-shadow: 0 0 15px 5px rgba(0, 62, 82, 0.3);
+    border-radius: 50%;
+}
+
+.unlockAnimation {
+    animation: unlock 1s ease-in-out forwards;
+}
+
+.fadeOut {
+    animation: fadeOutToNone 0.3s ease-in-out forwards;
+}
+
+@media (max-width: 880px) {
+    .defaultButton {
+        min-width: 270px;
+    }
+ }
+
+
+@keyframes unlock {
+    0% {
+        transform: scale(1);
+        background-color: rgb(0, 131, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        background-color: rgb(0, 108, 0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        background-color: rgb(0, 131, 0);
+        opacity: 1;
+    }
+    100% {
+        background: linear-gradient(0deg, rgba(152, 213, 246, 0.40), rgb(0, 43, 93, 0.40));
+    }
+}
+
+@keyframes fadeOutToNone {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}

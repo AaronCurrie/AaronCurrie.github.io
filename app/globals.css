@@ -1,6 +1,8 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-blue: rgb(152, 213, 246);
+  --border-blue: rgb(0, 43, 93);
+  --background-blue: rgba(1, 26, 55, 0.4);
+  --modal-overlay: rgba(0, 0, 0, 0.7);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,6 +24,7 @@ body {
   background: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('/background.png');
 }
 
 * {
@@ -31,7 +34,79 @@ body {
   font-family: Monospace ,Arial, Helvetica, sans-serif;
 }
 
+main {
+  min-height: 100vh;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+ul {
+  padding-left: 20px;
+  list-style: circle;
+  line-height: 1.4rem;
+}
+
+.main-offset {
+  padding: 120px 20px 20px 20px;
+}
+
+.briefing-offset {
+  padding-top: 350px;
+}
+
+.display-none {
+  display: none;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 880px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
 }

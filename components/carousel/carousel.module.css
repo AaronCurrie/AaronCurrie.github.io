@@ -1,0 +1,187 @@
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1300px;
+    height: 900px;
+    overflow: hidden;
+}
+
+.imagesContainer {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1300px;
+    height: 100%;
+    border: 1px solid var(--border-blue);
+    transition: transform 0.5s ease-in-out;
+}
+
+.imageContainer {
+    position: absolute;
+    width: max-content;
+    height: 900px;
+    object-fit: contain;
+    padding: 20px;
+    border: 1px solid var(--border-blue);
+    opacity: 0;
+    max-width: 100%;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.imageContainer.right:before, .imageContainer.left:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 225, 255, 0.202);
+    opacity: 0;
+    animation: smallPulse 1.5s infinite;
+    z-index: -1;
+}
+
+.image {
+    width: max-content;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.imageContainer.center {
+    opacity: 1;
+    transform: translateX(0) scale(0.95);
+    z-index: 2;
+}
+
+.imageContainer.right {
+    transform: translateX(-90%) scale(0.75);
+    opacity: 1;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.imageContainer.hiddenRight {
+    transform: translateX(-150%) scale(0.5);
+    opacity: 0;
+    z-index: 1;
+}
+
+.imageContainer.left {
+    transform: translateX(90%) scale(0.75);
+    opacity: 1;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.imageContainer.hiddenLeft {
+    transform: translateX(150%) scale(0.5);
+    opacity: 0;
+    z-index: 1;
+}
+
+.imageContainer.hidden {
+    opacity: 0;
+    transform: translateX(100%) scale(0.5);
+    z-index: 0;
+    transition: none;
+}
+
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 3;
+}
+
+.navButton:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
+    background-color: rgba(0, 112, 125, 0.202);
+    opacity: 0;
+    animation: bigPulse 1.5s infinite;
+    z-index: 0;
+}
+.navButton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navButton:first-of-type {
+    left: 10px;
+}
+
+.navButton:last-of-type {
+    right: 10px;
+}
+
+@media (max-width: 880px) {
+
+    .carousel {
+        height: 600px;
+    }
+    .imagesContainer {
+        height: 600px;
+    }
+
+    .imageContainer {
+        height: 100%;
+        padding: 5px 5px;
+    }
+    .image {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes smallPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+@keyframes bigPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}

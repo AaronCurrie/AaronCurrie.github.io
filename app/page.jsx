@@ -1,16 +1,35 @@
 'use client';
 import styles from "./page.module.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import{ missions } from "../constants/missions";
-import { useState } from "react";
-import MissionModal from "./components/home-page/mission-modal";
-import MissionPin from "./components/home-page/mission-pin";
-import Briefing from "./components/home-page/briefing";
-import AnimatedLights from "./components/animated-lights/animated-lights";
+import {MissionModal} from "../components/modals/modals";
+import MissionPin from "../components/home-page/mission-pin";
+import Briefing from "../components/briefing/briefing";
+import AnimatedLights from "../components/animated-lights/animated-lights";
+import useScreenSize from "./hooks/screen-size";
+import { useUserContext } from "@/context/user";
 
 export default function Home() {
   const [currentMission, setCurrentMission] = useState(null);
   const [briefing, setBriefing] = useState(true);
+  const { mobile } = useScreenSize()
+
+  const { pages, updatePageStatus } = useUserContext();
+
+  useEffect(() => {
+    console.log(mobile)
+    if(!mobile) {
+      setBriefing(true);
+    } else if(pages.find((page) => page.link === '/').completed && mobile) {
+      setBriefing(false);
+    } 
+  }, [mobile])
+
+  useEffect(() => {
+    if(!pages.find((page) => page.link === '/').completed) {
+    updatePageStatus('/', true, false);
+    }
+  }, [])
 
   const handleMissionClick = (mission) => {
     if(currentMission) {

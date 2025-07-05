@@ -1,0 +1,97 @@
+
+.imageGridContainer {
+    flex-direction: row;
+    border: 1px solid var(--border-blue);
+    padding: 20px;
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    margin: 10px auto;
+}
+
+.imageGrid {
+    display: flex;
+    border: 1px solid var(--border-blue);
+    height: 100%;
+    width: 100%;
+}
+
+.mainImage {
+    width: 50%;
+    height: 100%;
+}
+
+.mainImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid var(--border-blue);
+}
+
+.gridContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.gridItem {
+    width: calc(50%);
+    height: calc(33.33%);
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid var(--border-blue);
+    background: none;
+}
+
+.gridItem:hover img {
+    transform: scale(0.9);
+}
+
+.gridItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 880px) {
+    .imageGridContainer {
+        height: auto;
+        padding: 0;
+    }
+
+    .imageGrid {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .gridContainer {
+        width: 100%;
+    }
+
+    .gridContainer {
+        height: 450px;
+    }
+
+    .mainImage {
+        width: 100%;
+        height: 600px;
+    }
+    .gridItem {
+        width: 33.33%;
+        height: 50%;
+        cursor: pointer;
+        overflow: hidden;
+    }
+} 
+
+@media (max-width: 500px) {
+    .mainImage {
+        height: 400px;
+    }
+    .gridContainer {
+        height: 300px;
+    }
+}

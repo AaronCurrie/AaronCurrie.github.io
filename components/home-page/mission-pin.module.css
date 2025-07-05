@@ -34,6 +34,13 @@
     border: 2px solid rgb(0, 43, 93);
     border-radius: 50%;
     transform: translate(0, -50%);
+    transition: 0.2s ease-in-out;
+  }
+
+  .pin:hover {
+    cursor: pointer;
+    background-color: rgb(80, 187, 245);
+    transform: translate(0, -50%) scale(1.2);
   }
   
   .pin::after {

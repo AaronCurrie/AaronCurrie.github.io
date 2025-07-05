@@ -1,12 +1,12 @@
 .briefing {
     position: absolute;
-    top: 2%;
-    left: 2%;
+    top: 100px;
+    left: 20px;
     min-height: 200px;
-    width: 95%;
+    width: calc(100% - 60px);
     display: flex;
     padding: 20px;
-    gap: 10px;
+    gap: 40px;
     border: 1px solid rgb(0, 43, 93);
     background-color: rgba(1, 26, 55, 0.4);
     z-index: 10;
@@ -25,17 +25,28 @@
 .briefingContent {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
 }
 
-@media (max-width: 640px) {
+.briefingButton {
+    display: none;
+}
+
+@media (max-width: 880px) {
+    .briefingButton {
+        display: block;;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 98;
+    }
+
     .briefing {
         top: 10%;
-        height: 80%;
         flex-direction: column;
         align-items: center;
-        padding: 15px;
+        padding: 20px 15px 40px 15px;
         background-color: rgba(1, 26, 55, 0.7);
         gap: 40px;
     }
@@ -66,10 +77,9 @@
         animation: fadeIn 0.3s ease-in-out;
       }
       .briefingHeader button {
-        width: 60px;
-        height: 60px;
         display: inline;
     }
+
 }
 
 @keyframes fadeIn {
