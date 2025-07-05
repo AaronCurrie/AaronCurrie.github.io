@@ -31,17 +31,13 @@ const Carousel = ({ images }) => {
         if (!touchStart || !touchEnd) return;
 
         const swipeDistance = touchStart - touchEnd;
-
-        // Minimum swipe distance to trigger a slide change
         const minSwipeDistance = 50;
 
         if (swipeDistance > minSwipeDistance) {
-            prevSlide(); // Swipe left
+            prevSlide();
         } else if (swipeDistance < -minSwipeDistance) {
-            nextSlide(); // Swipe right
+            nextSlide();
         }
-
-        // Reset touch values
         setTouchStart(null);
         setTouchEnd(null);
     };
