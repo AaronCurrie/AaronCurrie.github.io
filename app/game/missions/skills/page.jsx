@@ -3,7 +3,7 @@ import Briefing from "@/components/briefing/briefing";
 import styles from "./page.module.css";
 import React, { useEffect, useState } from "react";
 import { missionData } from "./mission-data";
-import FlipCard from "../../../components/mission-components/flip-card/flip-card";
+import FlipCard from "@/components/mission-components/flip-card/flip-card";
 import useScreenSize from "@/hooks/screen-size";
 import Success from "@/components/mission-components/success-animation/success";
 import LoadingScan from "@/components/loading/loading-scan";

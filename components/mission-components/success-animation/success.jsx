@@ -14,7 +14,7 @@ const Success = ({page}) => {
         <ModalOverlay>
             <div className={styles.content}>
                 <h1>Mission Complete!</h1>
-                <Button label='Proceed to Page' type='a' href={page}/>
+                <Button label='Proceed to Page' type='a' href={`/game${page}`}/>
             </div>
         </ModalOverlay>
 

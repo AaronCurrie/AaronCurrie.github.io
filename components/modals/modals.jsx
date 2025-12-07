@@ -13,10 +13,9 @@ const MissionModal = ({closeModal, children, pages, currentMission}) => {
                 <h3>Section: {currentMission.section}</h3>
                 <p>{currentMission.description}</p>
                 <div className="flex-row">
-                    <Button type='a' href={`/missions${currentMission.link}`} label={completed?'Replay Mission' : 'Launch Mission'} />
-                    {completed && <Button type='a' href={`${currentMission.link}`} label={'Visit Page'} />}
+                    <Button type='a' href={`/game/missions${currentMission.link}`} label={completed?'Replay Mission' : 'Launch Mission'} />
+                    {completed && <Button type='a' href={`/game/${currentMission.link}`} label={'Visit Page'} />}
                 </div>
-
             </div>
         </div>
     );

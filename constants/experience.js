@@ -1,4 +1,4 @@
-import styles from '../app/experience/page.module.css';
+import styles from '../app/game/experience/page.module.css';
 
 export const experience = [
     {

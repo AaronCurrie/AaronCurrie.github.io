@@ -56,9 +56,9 @@ const Header = () => {
             <nav className={`${styles.nav} ${isOpen? styles.mobileMenu : styles.desktopNav}`}>
                 {pages.map((page, index) => {
                     if(pathname === page.link) return null
-                    return <Button key={index} type='a' href={page.link} action={closeBurgerMenu} label={page.mission} disabled={!page.completed} recentUnlock={page.recentUnlock} />
+                    return <Button key={index} type='a' href={`/game${page.link}`} action={closeBurgerMenu} label={page.mission} disabled={!page.completed} recentUnlock={page.recentUnlock} />
                 })}
-                {pathname === '/' && <QuickAccessButton pages={pages} updatePageStatus={updatePageStatus} />}
+                {pathname === '/game' && <QuickAccessButton pages={pages} updatePageStatus={updatePageStatus} />}
             </nav>
         </header>
     );
