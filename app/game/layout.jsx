@@ -1,5 +1,6 @@
-import Header from "@/components/header/header";
+import "../../styles/game-globals.css";
 import { Fragment } from "react";
+import Header from "@/components/header/header";
 
 export const metadata = {
   title: "Aaron Currie | Portfolio",
