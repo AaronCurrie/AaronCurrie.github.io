@@ -54,11 +54,11 @@ const Header = () => {
             <MobileMenu handleBurgerClick={handleBurgerClick} isOpen={isOpen}/>
             {isOpen && <ModalOverlay closeModal={handleBurgerClick} />} 
             <nav className={`${styles.nav} ${isOpen? styles.mobileMenu : styles.desktopNav}`}>
+                {pathname === '/game' && <Button type='a' href='/' label='Main Menu' />}
                 {pages.map((page, index) => {
                     if(pathname === page.link) return null
                     return <Button key={index} type='a' href={`/game${page.link}`} action={closeBurgerMenu} label={page.mission} disabled={!page.completed} recentUnlock={page.recentUnlock} />
                 })}
-                {pathname === '/game' && <QuickAccessButton pages={pages} updatePageStatus={updatePageStatus} />}
             </nav>
         </header>
     );

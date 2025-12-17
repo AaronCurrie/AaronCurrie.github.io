@@ -31,7 +31,6 @@ export const UserProvider = ({ children }) => {
         if (stored) {
           setPages(JSON.parse(stored));
         }
-        updatePageStatus('/', true, false);
       }, []);
       
       useEffect(() => {

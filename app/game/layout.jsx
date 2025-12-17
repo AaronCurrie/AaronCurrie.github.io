@@ -1,4 +1,3 @@
-import "../../styles/game-globals.css";
 import { Fragment } from "react";
 import Header from "@/components/header/header";
 
@@ -13,7 +12,5 @@ export default function GameLayout({ children }) {
           <Header />
           {children}
     </Fragment>
-
-
   );
 }

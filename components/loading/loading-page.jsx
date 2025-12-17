@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './loading.module.css';
 import AnimatedBlips from '../animations/animated-blips';
 import Image from 'next/image';
-import Radar from '../animations/radar';
+import {Radar} from '../animations/radar';
 
 const LoadingPage = ({text = 'Loading'}) => {
     return (
