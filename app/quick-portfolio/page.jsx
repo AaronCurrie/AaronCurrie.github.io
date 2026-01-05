@@ -1,7 +1,7 @@
-import TimeLine from "./components/timeline";
-import Hero from "./components/hero";
-import ProjectsSection from "./components/projects";
-import About from "./components/about";
+import TimeLine from "../../components/quick-profile-comps/timeline";
+import Hero from "../../components/quick-profile-comps/hero";
+import ProjectsSection from "../../components/quick-profile-comps/projects";
+import About from "../../components/quick-profile-comps/about";
 import { projects } from "@/constants/projects";
 import { experience } from "@/constants/experience";
 

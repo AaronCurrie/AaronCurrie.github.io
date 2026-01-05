@@ -16,10 +16,8 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: url('/backgrounds/milkyway.png');
-    background-image: url('/backgrounds/planet.png');
-    background-position: center;
-    background-size: cover;
+    object-fit: cover;
+    object-position: center;
     animation: zoom 2s ease-out forwards;
 }
 

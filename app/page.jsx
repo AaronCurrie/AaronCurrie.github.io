@@ -30,9 +30,7 @@ export default function MenuPage() {
 
     return (
         <main className={styles.main}>
-            <div className={styles.backgroundimage}>
-                {/* <img src="/svg/planet2.png" className={styles.planet} /> */}
-            </div>
+            <img className={styles.backgroundimage} src='/backgrounds/planet.png' alt='Background Planet' />
             <div className={styles.container}>
                 <div className={styles.menu}>
                     <Button label="New Game" type='button' action={startNewGame} />
@@ -51,8 +49,20 @@ export default function MenuPage() {
                         </div>
                         <div className={styles.introText}>
                             <h2>Welcome to my Portfolio,</h2>
-                            <p>My aim with this interactive experience is to show (not just tell), my skills, creativity, and technical ability through an engaging experience.</p>
-                            <p>Your objective: investigate the disappearance of Agent AC1178 (that’s me). Complete each mission on the map below, each mission you complete will unlock the corresponding page of my portfolio.</p>
+                            <p>
+                                I’m a developer who enjoys building interactive, well-crafted web experiences.
+                                This portfolio is designed to show my skills in action rather than just list them.
+                            </p>
+                            <p>
+                                Instead of just repeating my resume, I am hoping I have created a way for you to explore my work through a short interactive game experience.
+                                The game consists of missions, each mission unlocks a section of my portfolio, including projects, skills,
+                                and experience. 
+                                Each mission only takes a few minutes to complete, and I hope it gives you a better sense of my capabilities as a developer.
+                            </p>
+                            <p>
+                                If you’re short on time, you can skip the game and view my quick portfolio by clicking the 
+                                <strong> Quick Portfolio</strong> button.
+                            </p>
                         </div>
                 </div>
             </div>
