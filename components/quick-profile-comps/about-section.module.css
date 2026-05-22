@@ -1,0 +1,88 @@
+.about {
+    padding: 7rem 4rem;
+    width: 100%;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.headerLine {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--hud-border), transparent);
+}
+
+.outerFrame {
+    width: 100%;
+    padding: 2.5rem;
+}
+
+.content {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.textBlock {
+    flex: 0.62;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.bio {
+    color: var(--primary-blue);
+    line-height: 1.85;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.statsPanel {
+    flex: 0.38;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.statCard {
+    padding: 1rem 1.25rem;
+    background: rgba(0, 208, 255, 0.03);
+}
+
+.statLabel {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    color: var(--primary-blue);
+    margin: 0 0 0.4rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.statValue {
+    font-size: 1.3rem;
+    color: var(--cyan);
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 0 10px var(--cyan-glow);
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 880px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .textBlock,
+    .statsPanel {
+        flex: 1;
+        width: 100%;
+    }
+
+    .outerFrame {
+        padding: 1.5rem;
+    }
+}

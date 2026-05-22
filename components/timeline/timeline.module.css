@@ -1,0 +1,33 @@
+.heroContainer {
+    position: relative;
+    height: 80vh;
+    min-height: 800px;
+    width: 100%;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    transition: all 1s ease-in-out;
+}
+
+.textContainer {
+    position: absolute;
+    padding: 20px;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.lineContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.8s ease-in-out;
+}
+
+.height100 {
+    height: 100%;
+}
+
+.height0 {
+    height: 0;
+}

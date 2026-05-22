@@ -1,0 +1,54 @@
+.main {
+    width: 100vw;
+    height: max-content;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/backgrounds/lab.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.portfolioContainer {
+    position: relative;
+    background-image: url('/locker.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 900px;
+    width: 100%;
+    aspect-ratio: 2/3;
+    margin: 100px 0 0 0;
+    border: 1px solid rgb(0, 43, 93);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+}
+
+.carouselImage {
+    width: max-content;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.modalContent {
+    padding:20px;
+}
+
+
+@keyframes faideIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+

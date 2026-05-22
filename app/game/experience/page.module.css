@@ -1,0 +1,78 @@
+.timeLine {
+    position: absolute;
+    width: 5px;
+    background-color: var(--primary-blue);
+    content: '';
+}
+
+.middle100 {
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.top50 {
+    width: 5px;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.topLeft50 {
+    width: 5px;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 25%;
+}
+
+.topRight50 {
+    width: 5px;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 75%;
+}
+
+.bottom50 {
+    width: 5px;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.bottomLeft50 {
+    width: 5px;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+}
+
+.bottomRight50 {
+    width: 5px;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 75%;
+}
+
+.left50 {
+    width: calc(25% + 5px);
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+}
+
+.right50 {
+    width: calc(25% + 5px);
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

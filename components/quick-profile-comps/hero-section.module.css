@@ -1,0 +1,331 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: rgb(0, 8, 20);
+}
+
+/* Full-bleed interactive canvas */
+.particleCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.scanlines {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 208, 255, 0.012) 3px,
+        rgba(0, 208, 255, 0.012) 4px
+    );
+    animation: scanlineMove 10s linear infinite;
+    pointer-events: none;
+}
+
+.vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 35%,
+        rgba(0, 4, 12, 0.65) 100%
+    );
+    pointer-events: none;
+}
+
+.readout {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 10;
+}
+
+.topLeft {
+    position: absolute;
+    top: 1.8rem;
+    left: 2rem;
+    z-index: 10;
+}
+
+/* Centre content — no box, just text floating */
+.content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    will-change: transform;
+}
+
+.label {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    margin: 0 0 1.2rem;
+    opacity: 0.7;
+    animation: glitch 12s infinite;
+}
+
+.nameRow {
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.name {
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin: 0;
+    min-height: 1em;
+    text-shadow:
+        0 0 40px rgba(0, 208, 255, 0.35),
+        0 0 100px rgba(0, 208, 255, 0.12);
+}
+
+.subtitleWrapper {
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    font-size: clamp(0.8rem, 1.6vw, 1.1rem);
+    color: var(--cyan);
+    letter-spacing: 0.22em;
+    margin: 0;
+    min-height: 1.5em;
+    text-transform: uppercase;
+    font-family: monospace;
+    text-shadow: 0 0 12px var(--cyan-glow);
+}
+
+.dividerLine {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--cyan), transparent);
+    margin: 0 auto 2rem;
+    box-shadow: 0 0 8px var(--cyan-glow);
+}
+
+.ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    padding: 0.75rem 2rem;
+    border: 1px solid;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    font-family: monospace;
+    position: relative;
+}
+
+.ctaPrimary {
+    background: rgba(0, 208, 255, 0.1);
+    color: var(--cyan);
+    border-color: var(--cyan);
+}
+
+.ctaPrimary:hover {
+    background: rgba(0, 208, 255, 0.22);
+    box-shadow: 0 0 24px var(--cyan-glow), 0 0 60px rgba(0, 208, 255, 0.12);
+}
+
+.ctaSecondary {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.55);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ctaSecondary:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    box-shadow: 0 0 14px rgba(0, 208, 255, 0.25);
+}
+
+.ticker {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+@media (max-width: 880px) {
+    .readout {
+        display: none;
+    }
+    .topLeft {
+        top: 1.2rem;
+        left: 1rem;
+    }
+}
+
+
+.scanlines {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 208, 255, 0.015) 2px,
+        rgba(0, 208, 255, 0.015) 4px
+    );
+    animation: scanlineMove 8s linear infinite;
+    pointer-events: none;
+}
+
+.readout {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+}
+
+.frame {
+    padding: 2.5rem 3rem;
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    background: rgba(0, 14, 30, 0.55);
+    backdrop-filter: blur(4px);
+}
+
+.statusRow {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.label {
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    margin: 0.5rem 0 0.75rem;
+    animation: glitch 9s infinite;
+}
+
+.typewriterWrapper {
+    margin: 0.25rem 0;
+}
+
+.name {
+    font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+    color: var(--cyan);
+    text-shadow:
+        0 0 18px var(--cyan-glow),
+        0 0 55px rgba(0, 208, 255, 0.2);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    min-height: 1.2em;
+    letter-spacing: 0.04em;
+}
+
+.subtitleWrapper {
+    margin: 0.6rem 0 0;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+    letter-spacing: 0.12em;
+    margin: 0;
+    min-height: 1.4em;
+}
+
+.ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    padding: 0.7rem 1.75rem;
+    border: 1px solid;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    font-family: monospace;
+}
+
+.ctaPrimary {
+    background: rgba(0, 208, 255, 0.12);
+    color: var(--cyan);
+    border-color: var(--cyan);
+}
+
+.ctaPrimary:hover {
+    background: rgba(0, 208, 255, 0.25);
+    box-shadow: 0 0 18px var(--cyan-glow);
+}
+
+.ctaSecondary {
+    background: transparent;
+    color: var(--primary-blue);
+    border-color: rgba(152, 213, 246, 0.4);
+}
+
+.ctaSecondary:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    box-shadow: 0 0 14px rgba(0, 208, 255, 0.3);
+}
+
+.ticker {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+@media (max-width: 880px) {
+    .readout {
+        display: none;
+    }
+
+    .frame {
+        padding: 2rem 1.5rem;
+    }
+}

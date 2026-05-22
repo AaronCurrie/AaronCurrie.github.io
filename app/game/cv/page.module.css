@@ -1,0 +1,362 @@
+.screenContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    max-height: 800px;
+    width: 90%;
+    max-width: 1000px;
+    border: 1px solid var(--border-blue);
+    border-radius: 10px;
+    margin: auto;
+    padding: 10px;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border-blue);
+    border-radius: 10px;
+    box-shadow: inset 0 0 30px 4px var(--primary-blue);
+    overflow: hidden;
+    position: relative;
+}
+
+.positioner {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.radar {
+    width: 50vw;
+    height: 50vw;
+    max-width: 300px;
+    max-height: 300px;
+    opacity: 0.8;
+}
+
+.opacity {
+    opacity: 0.6;
+}
+
+.cv {
+    width: 450px;
+    height: 75%;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 95%;
+}
+.cv::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 26, 55, 0.4);
+
+}
+
+.cvImage {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.analyiser {
+    padding: 10px;
+    border: 1px solid var(--border-blue);
+    border-radius: 10px;
+    width: 95%;
+    height: max-content;
+    min-height: 300px;
+    background-color: rgba(1, 26, 55, 0.8);
+    text-align: center;
+    position: relative;
+}
+
+.profileContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
+}
+
+.details {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    text-align: left;
+}
+
+.profileImageContainer {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid var(--border-blue);
+    overflow: hidden;
+    position: relative;
+}
+
+.profilePic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid var(--border-blue);
+}
+
+.scannerContainer {
+    position: relative;
+    width: 70%;
+    height: 40%;
+    max-width: 450px;
+    margin: auto;
+    opacity: 0.75;
+}
+
+.scannerBox {
+    width: 50px;
+    height: 25px;
+    border: 1px solid var(--border-blue);
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+
+.scannerAnimationDown {
+    animation: scannerFlash 1s infinite alternate, scannerMove 20s linear infinite;
+}
+.scannerAnimationUp {
+    animation: scannerFlash 1s infinite alternate, scannerMove2 20s linear infinite;
+}
+
+.downloadButton {
+    background: linear-gradient(0deg, rgba(152, 213, 246, 0.80), rgb(0, 43, 93, 0.80));
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 1.4rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.downloadButton:hover {
+    box-shadow: 0 5px 20px rgba(152, 213, 246, 0.30), 0 0 40px rgb(0, 43, 93, 0.30);
+    transform: scale(1.05);
+}
+
+@media (max-width: 880px) {
+    .profileContainer {
+        padding: 5px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profileImageContainer {
+        width: 120px;
+        height: 120px;
+    }
+    .profilePic {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 460px) {
+    .details p {
+        font-size: 0.7rem;
+    }
+    .profileImageContainer {
+        width: 100px;
+        height: 100px;
+    }
+    .profilePic {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@keyframes scannerFlash {
+    0% {
+        background-color: rgba(1, 26, 55, 0.2);
+    }
+    100% {
+        background-color: rgba(0, 120, 255, 0.3);
+    }
+}
+@keyframes scannerMove {
+    0% {
+        top: 10%;
+        left: 0%; 
+    }
+    5% {
+        top: 10%;
+        left: 20%;
+    }
+    10% {
+        top: 10%;
+        left: 50%;
+    }
+    15% {
+        top: 10%;
+        left: 70%;
+    }
+    20% {
+        top: 10%;
+        left: 70%;
+    }
+    25% {
+        top: 30%;
+        left: 30%;
+    }
+    30% {
+        top: 30%;
+        left: 40%;
+    }
+    35% {
+        top: 30%;
+        left: 40%;
+    }
+    40% {
+        top: 30%;
+        left: 20%;
+    }
+    45% {
+        top: 30%;
+        left: 20%;
+    }
+    50% {
+        top: 50%;
+        left: 20%;
+    }
+    55% {
+        top: 50%;
+        left: 30%;
+    }
+    60% {
+        top: 50%;
+        left: 60%;
+    }
+    65% {
+        top: 25%;
+        left: 60%;
+    }
+    70% {
+        top: 65%;
+        left: 70%;
+    }
+    75% {
+        top: 65%;
+        left: 50%;
+    }
+    80% {
+        top: 65%;
+        left: 60%;
+    }
+    85% {
+        top: 75%;
+        left: 10%;
+    }
+    90% {
+        top: 75%;
+        left: 10%;
+    }
+    95% {
+        top: 75%;
+        left: 20%;
+    }
+    100% {
+        top: 10%;
+        left: 0%;
+    }
+}
+
+@keyframes scannerMove2 {
+    0% {
+        top: 80%;
+        left: 50%; 
+    }
+    5% {
+        top: 80%;
+        left: 60%;
+    }
+    10% {
+        top: 80%;
+        left: 70%;
+    }
+    15% {
+        top: 80%;
+        left: 70%;
+    }
+    20% {
+        top: 80%;
+        left: 20%;
+    }
+    25% {
+        top: 60%;
+        left: 60%;
+    }
+    30% {
+        top: 60%;
+        left: 50%;
+    }
+    35% {
+        top: 60%;
+        left: 40%;
+    }
+    40% {
+        top: 60%;
+        left: 10%;
+    }
+    45% {
+        top: 60%;
+        left: 40%;
+    }
+    50% {
+        top: 40%;
+        left: 60%;
+    }
+    55% {
+        top: 25%;
+        left: 50%;
+    }
+    60% {
+        top: 25%;
+        left: 60%;
+    }
+    65% {
+        top: 35%;
+        left: 40%;
+    }
+    70% {
+        top: 65%;
+        left: 40%;
+    }
+    75% {
+        top: 65%;
+        left: 30%;
+    }
+    80% {
+        top: 65%;
+        left: 20%;
+    }
+    85% {
+        top: 75%;
+        left: 60%;
+    }
+    90% {
+        top: 75%;
+        left: 70%;
+    }
+    95% {
+        top: 75%;
+        left: 80%;
+    }
+    100% {
+        top: 80%;
+        left: 50%; 
+    }
+}

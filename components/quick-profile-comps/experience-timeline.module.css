@@ -1,0 +1,483 @@
+/* ── Outer scroll container ──────────────────────── */
+.outer {
+    position: relative;
+    width: 100%;
+    /* height set inline via JS */
+}
+
+/* ── Sticky inner — fills viewport, stays fixed while outer scrolls ── */
+.sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 0 1.5rem;
+    background: rgb(0, 8, 20);
+}
+
+/* ── Header ──────────────────────────────────────── */
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 3rem;
+    margin-bottom: 2rem;
+    flex-shrink: 0;
+}
+
+.headerLine {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--hud-border), transparent);
+}
+
+.scrollHint {
+    font-size: 0.6rem;
+    font-family: monospace;
+    color: var(--primary-blue);
+    letter-spacing: 0.18em;
+    opacity: 0.45;
+    flex-shrink: 0;
+}
+
+/* ── Horizontal track clip ───────────────────────── */
+.trackClip {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.track {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 3rem 3rem 2rem;
+    position: relative;
+    height: 100%;
+    will-change: transform;
+}
+
+/* Connector line spanning full strip */
+.connector {
+    position: absolute;
+    top: 3.75rem; /* aligned to dot centre */
+    left: 0;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        var(--cyan) 0%,
+        rgba(0, 208, 255, 0.25) 80%,
+        transparent 100%
+    );
+    box-shadow: 0 0 10px rgba(0, 208, 255, 0.3);
+    pointer-events: none;
+}
+
+/* ── Card slot (dot + card stacked vertically) ───── */
+.cardSlot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    flex-shrink: 0;
+    width: 520px;
+    position: relative;
+}
+
+/* ── Timeline dot ────────────────────────────────── */
+.dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: rgb(0, 8, 20);
+    border: 1.5px solid var(--cyan);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    margin-left: 4px;
+}
+
+.dotActive {
+    background: var(--cyan);
+    box-shadow: 0 0 14px var(--cyan-glow), 0 0 28px rgba(0, 208, 255, 0.3);
+    animation: flicker 3.5s ease-in-out infinite;
+}
+
+.dotYear {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    font-family: monospace;
+    color: var(--primary-blue);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    opacity: 0.7;
+}
+
+/* ── Card ────────────────────────────────────────── */
+.card {
+    width: 100%;
+    position: relative;
+}
+
+.cardFrame {
+    padding: 1.75rem 2rem 1.5rem;
+    background: var(--hud-bg);
+    border-left: 2px solid var(--cyan);
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.cardFrame:hover {
+    box-shadow: 0 0 24px rgba(0, 208, 255, 0.1);
+}
+
+.cardIndex {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    font-family: monospace;
+    color: var(--cyan);
+    opacity: 0.06;
+    font-weight: 800;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.cardMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.date,
+.location {
+    font-size: 0.67rem;
+    color: var(--primary-blue);
+    font-family: monospace;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+}
+
+.divider {
+    opacity: 0.3;
+}
+
+.company {
+    font-size: 1.5rem;
+    color: var(--cyan);
+    margin: 0.1rem 0 0;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 14px rgba(0, 208, 255, 0.22);
+}
+
+.role {
+    font-size: 0.85rem;
+    color: var(--primary-blue);
+    margin: 0;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+}
+
+.bio {
+    font-size: 0.82rem;
+    color: var(--primary-blue);
+    line-height: 1.75;
+    margin: 0.3rem 0 0;
+    opacity: 0.75;
+}
+
+.points {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.points li {
+    font-size: 0.76rem;
+    color: var(--primary-blue);
+    padding-left: 1rem;
+    position: relative;
+    opacity: 0.7;
+    line-height: 1.5;
+}
+
+.points li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+}
+
+/* ── Progress bar ────────────────────────────────── */
+.progressBar {
+    flex-shrink: 0;
+    height: 2px;
+    background: rgba(0, 208, 255, 0.1);
+    margin: 0.5rem 3rem 0;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan-glow);
+    transform-origin: left;
+}
+
+/* ── Mobile fallback — revert to vertical scroll ─── */
+@media (max-width: 880px) {
+    .outer {
+        height: auto !important;
+    }
+
+    .sticky {
+        position: static;
+        height: auto;
+        overflow: visible;
+        padding: 5rem 1.25rem 3rem;
+    }
+
+    .trackClip {
+        overflow: visible;
+    }
+
+    .track {
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 2rem;
+        transform: none !important;
+    }
+
+    .connector {
+        display: none;
+    }
+
+    .cardSlot {
+        width: 100%;
+    }
+
+    .progressBar {
+        display: none;
+    }
+
+    .scrollHint {
+        display: none;
+    }
+}
+
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.headerLine {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--hud-border), transparent);
+}
+
+/* ── Horizontal connector ────────────────────────── */
+.connectorWrapper {
+    position: relative;
+    height: 52px;
+    margin-bottom: 3.5rem;
+}
+
+.connector {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        var(--cyan) 0%,
+        rgba(0, 208, 255, 0.35) 85%,
+        transparent 100%
+    );
+    box-shadow: 0 0 10px var(--cyan-glow);
+    transform-origin: left;
+}
+
+.dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2px;
+}
+
+.dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--background-blue);
+    border: 1px solid var(--cyan);
+    position: relative;
+    flex-shrink: 0;
+    cursor: default;
+}
+
+.dotActive {
+    background: var(--cyan);
+    box-shadow: 0 0 12px var(--cyan-glow), 0 0 24px rgba(0, 208, 255, 0.3);
+    animation: flicker 3.5s ease-in-out infinite;
+}
+
+.dotYear {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.58rem;
+    color: var(--primary-blue);
+    font-family: monospace;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+/* ── Cards ───────────────────────────────────────── */
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card {
+    max-width: 68%;
+}
+
+.cardLeft {
+    align-self: flex-start;
+}
+
+.cardRight {
+    align-self: flex-end;
+}
+
+.cardFrame {
+    padding: 1.75rem 2rem;
+    border-left: 3px solid var(--cyan);
+    background: var(--hud-bg);
+    transition: box-shadow 0.3s ease;
+}
+
+.cardFrame:hover {
+    box-shadow: 0 0 20px rgba(0, 208, 255, 0.1);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.cardMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.date,
+.location {
+    font-size: 0.68rem;
+    color: var(--primary-blue);
+    font-family: monospace;
+    letter-spacing: 0.08em;
+    opacity: 0.65;
+}
+
+.divider {
+    color: var(--hud-border);
+    opacity: 0.5;
+}
+
+.company {
+    font-size: 1.5rem;
+    color: var(--cyan);
+    margin: 0.1rem 0 0;
+    text-shadow: 0 0 12px rgba(0, 208, 255, 0.25);
+    letter-spacing: 0.02em;
+}
+
+.role {
+    font-size: 0.88rem;
+    color: var(--primary-blue);
+    margin: 0;
+    letter-spacing: 0.06em;
+    opacity: 0.9;
+}
+
+.bio {
+    font-size: 0.85rem;
+    color: var(--primary-blue);
+    line-height: 1.75;
+    margin: 0.2rem 0 0;
+    opacity: 0.8;
+}
+
+.points {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.points li {
+    font-size: 0.78rem;
+    color: var(--primary-blue);
+    padding-left: 1.1rem;
+    position: relative;
+    opacity: 0.75;
+    line-height: 1.55;
+}
+
+.points li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    opacity: 0.9;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 880px) {
+    .card {
+        max-width: 100%;
+    }
+
+    .cardRight {
+        align-self: flex-start;
+    }
+
+    .connectorWrapper {
+        overflow-x: auto;
+    }
+}

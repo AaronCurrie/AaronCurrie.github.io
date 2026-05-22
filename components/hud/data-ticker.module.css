@@ -1,0 +1,39 @@
+.wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    height: 26px;
+    background: rgba(0, 6, 18, 0.96);
+    border-top: 1px solid rgba(0, 208, 255, 0.2);
+    overflow: hidden;
+}
+
+.liveLabel {
+    flex-shrink: 0;
+    padding: 0 14px;
+    font-size: 0.58rem;
+    letter-spacing: 4px;
+    color: rgb(0, 208, 255);
+    border-right: 1px solid rgba(0, 208, 255, 0.2);
+    white-space: nowrap;
+    animation: flicker 6s infinite;
+}
+
+.track {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.content {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 0.58rem;
+    color: rgba(152, 213, 246, 0.6);
+    letter-spacing: 1.8px;
+    animation: tickerScroll 45s linear infinite;
+}

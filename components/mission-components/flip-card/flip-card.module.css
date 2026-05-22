@@ -1,0 +1,87 @@
+.gridImg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .questionMark {
+    border-radius: 100%;
+  }
+
+  .flipCard {
+    position: relative;
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.flipCardItemFront:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.flipCardItemFront,
+.flipCardItemBack {
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.flipCardItemFront {
+    transform: rotateY(0deg);
+}
+
+.flipCardItemBack {
+    transform: rotateY(180deg);
+}
+
+.flipCard.flipped .flipCardItemFront {
+    transform: rotateY(-180deg);
+}
+
+.flipCard.flipped .flipCardItemBack {
+    transform: rotateY(0deg);
+}
+
+.matched::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 30px;
+  min-height: 30px;
+  background-color: green;
+  border-radius: 50%;
+  transform: translate(0, -50%);
+  animation: pulse 1.5s forwards 1;
+  opacity: 0;
+}
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.5);
+      opacity: 0.0;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(0.5);
+      opacity: 0.0;
+    }
+}

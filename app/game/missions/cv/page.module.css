@@ -1,0 +1,55 @@
+.screenContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    max-height: 800px;
+    width: 90%;
+    max-width: 1000px;
+    border: 1px solid var(--border-blue);
+    border-radius: 10px;
+    margin: auto;
+    padding: 10px;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border-blue);
+    border-radius: 10px;
+    box-shadow: inset 0 0 30px 4px var(--primary-blue);
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+    overflow-y: auto;
+    scrollbar-color: var(--border-blue) rgba(1, 26, 55, 0.5);
+}
+
+.inputContainer {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 10px;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid var(--border-blue);
+}
+
+.input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border-blue);
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px 4px var(--primary-blue);
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+    padding: 20px;
+    color: white;
+    font-size: 16px;
+}

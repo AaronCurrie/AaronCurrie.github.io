@@ -1,0 +1,37 @@
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.active {
+    background: rgb(0, 255, 136);
+    box-shadow: 0 0 6px rgb(0, 255, 136), 0 0 12px rgba(0, 255, 136, 0.4);
+    animation: blink 2.2s ease-in-out infinite;
+}
+
+.locked {
+    background: rgb(255, 60, 60);
+    box-shadow: 0 0 5px rgb(255, 60, 60);
+    opacity: 0.7;
+}
+
+.warning {
+    background: rgb(255, 200, 0);
+    box-shadow: 0 0 6px rgb(255, 200, 0);
+    animation: blink 1s ease-in-out infinite;
+}
+
+.label {
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    color: rgba(152, 213, 246, 0.6);
+}

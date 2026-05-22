@@ -1,0 +1,191 @@
+.main {
+    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+  }
+
+  .section {
+    position: relative;
+    border: 1px solid rgb(0, 43, 93);
+    height: max-content;
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('/backgrounds/jungle.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  .briefingOffset {
+    padding-top: 425px;
+  }
+  
+  .gameContainer {
+    width: 100%;
+    padding: 20px;
+    height: 1000px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(1, 26, 55, 0.99);
+    z-index: 7;
+  }
+
+  .gridContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(9, 10%);
+    padding-top: 20px;;
+    width: 100%;
+    height: 900px;
+    align-items: center;
+    justify-items: center;
+  }
+
+.actionButton {
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(0deg, rgba(152, 213, 246, 0.40), rgb(0, 43, 93, 0.40));
+    color: white;
+    width: max-content;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    min-width: 120px;
+    font-weight: bold;
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+.actionButton:not(:disabled):hover {
+    box-shadow: 0 5px 20px rgba(152, 213, 246, 0.30), 0 0 40px rgb(0, 43, 93, 0.30);
+  }
+.actionButton:disabled {
+    background: rgb(0, 149, 0);
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+  }
+
+.gridItem {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line {    
+  position: absolute;
+  top: 27px;
+  background-color: var(--primary-blue);
+  content: '';
+  z-index: 0;
+}
+
+.forward {
+  width: 5px;
+  height: 88px;
+  animation: extendVertical 1s linear forwards;
+}
+
+.back {
+  width: 5px;
+  height: 88px;
+  transform: rotate(180deg);
+  transform-origin: top;
+  animation: extendVertical 1s linear forwards;
+}
+
+.left {
+  left: 50%;
+  height: 5px;
+  width: 105%;
+  animation: extendHorizontal 1.2s linear forwards;
+}
+
+.right {
+  left: 50%;
+  transform: rotate(180deg);
+  transform-origin: left;
+  height: 5px;
+  width: 105%;
+  animation: extendHorizontal 1.2s linear forwards;
+}
+
+.failed {
+  background-color: red!important;
+}
+
+.animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100vw, 100vh, 100%);
+  height: max(100vw, 100vh, 100%);
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  animation: warp 1.2s ease-in-out forwards;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.shield {
+  width: 300px;
+  height: 300px;
+}
+
+@keyframes warp {
+  0% {
+    opacity: 0.0;
+    transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.6);
+  }
+}
+
+@keyframes extendHorizontal {
+  0% {
+      width: 0;
+  }
+  75% {
+      width: 102%;
+      background-color: var(--primary-blue);
+  }
+  100% {
+    background-color: rgb(0, 149, 0);
+  }
+}
+
+@keyframes extendVertical {
+  0% {
+      height: 0;
+  }
+  75% {
+    height: 88px;
+    background-color: var(--primary-blue);
+  }
+  100% {
+    background-color: rgb(0, 149, 0);
+  }
+}

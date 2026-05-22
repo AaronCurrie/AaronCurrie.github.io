@@ -1,0 +1,22 @@
+.gridButton {
+    border: 1px solid var(--border-blue);
+    background: transparent;
+    transition: 0.3s linear;
+  }
+
+.gridButton:not(:disabled):hover {
+    background: var(--border-blue);
+    cursor: pointer;
+  }
+
+  .correct {
+    background-color: rgba(0, 134, 0, 0.65);
+  }
+
+  .incorrect {
+    background-color: rgba(32, 48, 64, 0.70);
+  }
+
+  .locked {
+    background-color: rgba(134, 0, 0, 0.65);
+  }

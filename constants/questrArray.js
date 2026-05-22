@@ -1,0 +1,16 @@
+export const qestrArray = [
+    { image: '/questr/questr1.jpg' },
+    { image: '/questr/questr2.jpg' },
+    { image: '/questr/questr3.jpg' },
+    { image: '/questr/questr4.jpg' },
+    { image: '/questr/questr5.jpg' },
+    { image: '/questr/questr6.jpg' },
+    { image: '/questr/questr7.jpg' },
+    { image: '/questr/questr8.jpg' },
+    { image: '/questr/questr9.jpg' },
+    { image: '/questr/questr10.jpg' },
+    { image: '/questr/questr11.jpg' },
+    { image: '/questr/questr12.jpg' },
+    { image: '/questr/questr13.jpg' },
+    { image: '/questr/questr14.jpg' },
+];

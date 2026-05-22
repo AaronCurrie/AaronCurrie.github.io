@@ -1,0 +1,147 @@
+/* ─────────────────────────────────────────────────────
+   MenuCard — Jarvis-style HUD card for the main menu
+   ───────────────────────────────────────────────────── */
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    background: rgba(1, 12, 30, 0.92);
+    border: 1px solid rgba(0, 208, 255, 0.22);
+    border-radius: 4px;
+    cursor: pointer;
+    isolation: isolate;
+    text-align: left;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+    /* reset button defaults */
+    font-family: inherit;
+    color: white;
+    padding: 0;
+}
+
+/* ── Spinning conic-gradient border (visible on hover) ── */
+.card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 6px;
+    background: conic-gradient(
+        from var(--angle),
+        transparent            60%,
+        rgba(0, 208, 255, 0.35) 70%,
+        rgba(140, 210, 255, 0.55) 74%,
+        rgba(0, 208, 255, 0.35) 78%,
+        transparent            88%
+    );
+    animation: borderSpin 2.8s linear infinite;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.card:not(.disabled):hover::before {
+    opacity: 1;
+}
+
+.card:not(.disabled):hover {
+    border-color: rgba(0, 208, 255, 0.5);
+    box-shadow:
+        0 0 24px rgba(0, 208, 255, 0.08),
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(0, 208, 255, 0.08);
+}
+
+/* ── Disabled state ── */
+.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: rgba(0, 208, 255, 0.08);
+}
+
+/* ── Link wrapper fills the card so the whole surface is clickable ── */
+.linkFill {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ── Card interior layout ── */
+.inner {
+    position: relative;
+    padding: 18px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.topRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.callsign {
+    font-size: 0.52rem;
+    letter-spacing: 3px;
+    color: rgba(0, 208, 255, 0.55);
+}
+
+.cardLabel {
+    font-size: 1.15rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: rgb(220, 240, 255);
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+    color: rgba(152, 213, 246, 0.5);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ── Animated scanline sweep across card bottom ── */
+.scanline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 208, 255, 0.6),
+        transparent
+    );
+    animation: scanlineMove 3.5s ease-in-out infinite;
+}
+
+/* ── Corner brackets ── */
+.corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: rgba(0, 208, 255, 0.4);
+    border-style: solid;
+    transition: border-color 0.3s;
+}
+
+.card:not(.disabled):hover .corner {
+    border-color: rgba(0, 208, 255, 0.85);
+}
+
+.tl { top: 5px;    left: 5px;  border-width: 1px 0 0 1px; }
+.tr { top: 5px;    right: 5px; border-width: 1px 1px 0 0; }
+.bl { bottom: 5px; left: 5px;  border-width: 0 0 1px 1px; }
+.br { bottom: 5px; right: 5px; border-width: 0 1px 1px 0; }
+
+@media (max-width: 880px) {
+    .card {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,34 @@
+.overlay {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    z-index: 8;
+}
+
+.content {
+    text-align: center;
+    color: white;
+    background-color: rgba(33, 0, 0, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeInGrow 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+@keyframes fadeInGrow {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

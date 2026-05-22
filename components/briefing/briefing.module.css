@@ -1,0 +1,131 @@
+.briefing {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    min-height: 200px;
+    max-height: 85%;
+    width: calc(100% - 60px);
+    display: flex;
+    padding: 20px;
+    gap: 10px;
+    border: 1px solid rgb(0, 43, 93);
+    background-color: rgba(1, 26, 55, 0.6);
+    z-index: 10;
+    animation: fadeIn 0.3s ease-in-out;
+    scrollbar-color: var(--border-blue) rgba(1, 26, 55, 0.5);
+}
+
+.briefingHeader button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+}
+
+.profilePic {
+    width: 158px;
+    max-height: 158px;
+}
+
+.briefingContent {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.briefingButton {
+    position: absolute;
+    top: 100px;
+    padding: 0 20px;
+}
+
+.briefingButton button{
+    width: 60px;
+    height: 60px;
+    animation: fadeIn 0.3s ease-in-out;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 50%;
+}
+
+.briefingIcon {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.briefingButton button:hover{
+    background-color: rgba(152, 213, 246, 0.3);
+    box-shadow: 0 0 20px 2px rgba(152, 213, 246, 0.6), 0 0 40px rgb(0, 43, 93, 0.6);
+}
+
+
+@media (max-width: 1000px) {
+    .briefingContent {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 880px) {
+    .briefingButton {
+        display: block;
+        position: fixed;
+        top: 0px;
+        left: none;
+        right: 0px;
+        z-index: 98;
+        padding: 20px;
+    }
+
+    .briefing {
+        top: 10%;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px 40px 15px;
+        background-color: rgba(1, 26, 55, 0.9);
+        gap: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .briefingHeader {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+
+    .profilePic {
+        width: 100px;
+        max-height: 100px;
+    }
+
+    .briefingOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+      .briefingHeader button {
+        display: inline;
+    }
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

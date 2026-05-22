@@ -1,0 +1,65 @@
+.main {
+    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+  }
+
+  .section {
+    position: relative;
+    border: 1px solid rgb(0, 43, 93);
+    height: max-content;
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('/backgrounds/lab.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .missionGrid {
+    display: grid;
+    grid-template-columns: repeat(5, clamp(50px, 18vw, 120px));
+    grid-template-rows: repeat(6, clamp(60px, 20vw, 130px));
+    padding: 20px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    width: max-content;
+    height: max-content;
+    background-image: url('/locked.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 30px auto 150px auto;
+    overflow: hidden;
+  }
+
+  .energyContainer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: rgb(1, 26, 55, 0.99);
+    z-index: 20;
+  }
+  .energyBar {
+    width: 50%;
+    height: 20px;
+    background-color: rgba(0, 43, 93, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.4s ease-in-out;
+  }
+  .energyFill {
+    height: 100%;
+    background-color: #98d5f6;
+    transition: width 0.8s ease-in-out;
+  }
+  .failed {
+    background-color: rgba(169, 0, 0, 0.5);
+  }

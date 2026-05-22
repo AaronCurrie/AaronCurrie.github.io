@@ -1,0 +1,85 @@
+.radarCircle {
+    position: relative;
+    width: 800px;
+    height: 800px;
+    min-height: 800px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-blue);
+    box-shadow: 0 0 20px rgba(135, 206, 250, 0.5);
+    overflow: hidden;
+}
+
+.DynamicRadarCircle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--primary-blue);
+    box-shadow: 0 0 20px rgba(135, 206, 250, 0.5);
+    overflow: hidden;
+}
+
+.radarCircleInner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid rgba(135, 206, 250, 0.5);
+    box-shadow: inset 0 0 20px rgba(135, 206, 250, 0.5);
+    transform: translate(-50%, -50%);
+}
+
+.inner75 {
+    width: 75%;
+    height: 75%;
+}
+.inner50 {
+    width: 50%;
+    height: 50%;
+}
+.inner25 {
+    width: 25%;
+    height: 25%;
+}
+
+.radarLine {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: var(--primary-blue);
+    transform-origin: top;
+}
+
+.backgroundImage {
+    z-index: -1;
+}
+
+.left {
+    transform: rotate(90deg);
+}
+.right {
+    transform: rotate(-90deg);
+}
+.up {
+    transform: rotate(0deg);
+}
+.down {
+    transform: rotate(180deg);
+}
+
+.spin {
+    animation: radar 5s linear infinite;
+    box-shadow: 10px 0px 40px 10px var(--primary-blue);
+}
+
+@keyframes radar {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
