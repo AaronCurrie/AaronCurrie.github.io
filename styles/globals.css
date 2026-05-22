@@ -5,11 +5,25 @@
   font-family: Monospace ,Arial, Helvetica, sans-serif;
 }
 
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 :root {
   --primary-blue: rgb(152, 213, 246);
   --border-blue: rgb(0, 43, 93);
   --background-blue: rgba(1, 26, 55, 0.4);
   --modal-overlay: rgba(0, 0, 0, 0.7);
+  /* HUD system variables */
+  --cyan: rgb(0, 208, 255);
+  --cyan-glow: rgba(0, 208, 255, 0.6);
+  --cyan-dim: rgba(0, 208, 255, 0.08);
+  --hud-bg: rgba(1, 20, 45, 0.92);
+  --hud-border: rgba(0, 208, 255, 0.35);
+  --green-active: rgb(0, 255, 136);
+  --red-locked: rgb(255, 60, 60);
 }
 
 @media (prefers-color-scheme: dark) {

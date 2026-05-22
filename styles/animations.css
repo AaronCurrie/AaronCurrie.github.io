@@ -1,8 +1,68 @@
 @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Glitch – occasional RGB-split on headings ── */
+@keyframes glitch {
+  0%, 88%, 100% {
+    transform: translate(0);
+    text-shadow: none;
   }
+  89% {
+    transform: translate(-3px, 1px);
+    text-shadow: 3px 0 rgba(255, 0, 128, 0.75), -3px 0 rgba(0, 255, 255, 0.75);
+  }
+  91% {
+    transform: translate(3px, -1px);
+    text-shadow: -3px 0 rgba(255, 0, 128, 0.75), 3px 0 rgba(0, 255, 255, 0.75);
+  }
+  93% { transform: translate(-1px, 0); text-shadow: none; }
+  95% {
+    transform: translate(2px, 1px);
+    text-shadow: 2px 0 rgba(255, 0, 128, 0.5), -2px 0 rgba(0, 255, 255, 0.5);
+  }
+  97% { transform: translate(0); text-shadow: none; }
+}
+
+/* ── Flicker – used on status labels & readout values ── */
+@keyframes flicker {
+  0%, 92%, 100% { opacity: 1; }
+  93%           { opacity: 0.3; }
+  94%           { opacity: 1; }
+  96%           { opacity: 0.15; }
+  98%           { opacity: 1; }
+}
+
+/* ── Spinning conic border for menu cards ── */
+@keyframes borderSpin {
+  to { --angle: 360deg; }
+}
+
+/* ── Data ticker scroll ── */
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+/* ── Vertical data-stream fall ── */
+@keyframes streamFall {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  5%   { opacity: 1; }
+  85%  { opacity: 0.7; }
+  100% { transform: translateY(120vh); opacity: 0; }
+}
+
+/* ── Pulsing dot blink ── */
+@keyframes blink {
+  0%, 40%, 60%, 100% { opacity: 1; }
+  50%                { opacity: 0.1; }
+}
+
+/* ── Scanline sweep inside cards ── */
+@keyframes scanlineMove {
+  0%, 100% { transform: translateX(-20%); opacity: 0; }
+  15%       { opacity: 1; }
+  85%       { opacity: 1; }
+  95%       { transform: translateX(120%); opacity: 0; }
+}

@@ -95,3 +95,22 @@
         transform: translateX(0) translateY(-100vh);
     }
 }
+
+/* Vertical falling data-stream bar */
+.dataStream {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 20%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 208, 255, 0.04) 10%,
+        rgba(0, 208, 255, 0.55) 50%,
+        rgba(0, 208, 255, 0.85) 75%,
+        rgba(0, 208, 255, 0.15) 90%,
+        transparent 100%
+    );
+    animation: streamFall 4s linear infinite;
+    filter: blur(0.6px);
+}

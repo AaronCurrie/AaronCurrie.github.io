@@ -1,0 +1,37 @@
+.frame {
+    position: relative;
+}
+
+.corner {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-color: rgb(0, 208, 255);
+    border-style: solid;
+    opacity: 0.65;
+    z-index: 2;
+    transition: opacity 0.3s, border-color 0.3s;
+}
+
+.frame:hover .corner {
+    opacity: 1;
+    border-color: rgb(0, 228, 255);
+}
+
+.tl { top: -3px;    left: -3px;  border-width: 2px 0 0 2px; }
+.tr { top: -3px;    right: -3px; border-width: 2px 2px 0 0; }
+.bl { bottom: -3px; left: -3px;  border-width: 0 0 2px 2px; }
+.br { bottom: -3px; right: -3px; border-width: 0 2px 2px 0; }
+
+.label {
+    position: absolute;
+    top: -10px;
+    left: 14px;
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    color: rgb(0, 208, 255);
+    background: rgb(0, 14, 30);
+    padding: 0 8px;
+    z-index: 3;
+    animation: flicker 10s infinite;
+}

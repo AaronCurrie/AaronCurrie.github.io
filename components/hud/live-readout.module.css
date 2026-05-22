@@ -1,0 +1,61 @@
+.readout {
+    background: rgba(0, 6, 18, 0.88);
+    border: 1px solid rgba(0, 208, 255, 0.18);
+    padding: 10px 14px;
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(0, 208, 255);
+    font-size: 0.55rem;
+    letter-spacing: 4px;
+    border-bottom: 1px solid rgba(0, 208, 255, 0.18);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    animation: flicker 10s infinite;
+}
+
+/* ── Scrolling SVG sine wave ── */
+.sineWrapper {
+    display: inline-block;
+    width: 60px;
+    height: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+.sineSvg {
+    width: 120px;
+    height: 16px;
+    display: block;
+    animation: sineScroll 2s linear infinite;
+}
+
+@keyframes sineScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 5px;
+}
+
+.metricLabel {
+    color: rgba(152, 213, 246, 0.45);
+}
+
+.value {
+    color: rgb(0, 208, 255);
+    font-weight: bold;
+    min-width: 52px;
+    text-align: right;
+    animation: flicker 7s infinite;
+}
