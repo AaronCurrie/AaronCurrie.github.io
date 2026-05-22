@@ -1,0 +1,103 @@
+.section {
+    padding: 8rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    max-width: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame {
+    width: 100%;
+    padding: 3.5rem 2.5rem;
+    background: rgba(0, 14, 30, 0.6);
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+    text-align: center;
+    position: relative;
+}
+
+.label {
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    margin: 0.25rem 0 0;
+    animation: glitch 11s infinite;
+    opacity: 0.85;
+}
+
+.heading {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--cyan);
+    text-shadow: 0 0 22px var(--cyan-glow), 0 0 60px rgba(0, 208, 255, 0.15);
+    margin: 0;
+    letter-spacing: 0.18em;
+}
+
+.subtext {
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+    line-height: 1.75;
+    max-width: 420px;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.scanlines {
+    position: absolute;
+    inset: -3.5rem -2.5rem;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 208, 255, 0.01) 3px,
+        rgba(0, 208, 255, 0.01) 6px
+    );
+    animation: scanlineMove 12s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.downloadBtn {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 1rem 2.75rem;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    background: rgba(0, 208, 255, 0.07);
+    font-family: monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.22em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.25s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.downloadBtn:hover {
+    background: rgba(0, 208, 255, 0.14);
+}
+
+@media (max-width: 880px) {
+    .frame {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .scanlines {
+        inset: -2.5rem -1.5rem;
+    }
+}

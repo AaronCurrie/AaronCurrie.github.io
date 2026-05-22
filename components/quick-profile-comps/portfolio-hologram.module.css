@@ -1,0 +1,688 @@
+.section {
+    padding: 7rem 4rem;
+    width: 100%;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.headerLine {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--hud-border), transparent);
+}
+
+.projectCount {
+    font-family: monospace;
+    font-size: 0.65rem;
+    color: var(--primary-blue);
+    letter-spacing: 0.14em;
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+/* ── Layout ──────────────────────────────────────── */
+.layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* ── Sidebar ─────────────────────────────────────── */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    border-right: 1px solid var(--hud-border);
+    padding-right: 1.5rem;
+    position: sticky;
+    top: 2rem;
+}
+
+.projectItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+    background: none;
+    border: none;
+    border-left: 2px solid transparent;
+    color: var(--primary-blue);
+    font-family: monospace;
+    padding: 0.8rem 0.9rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.projectItem:hover {
+    color: var(--cyan);
+    border-left-color: rgba(0, 208, 255, 0.3);
+    background: rgba(0, 208, 255, 0.02);
+}
+
+.projectItemActive {
+    color: var(--cyan);
+    border-left-color: var(--cyan);
+    background: var(--cyan-dim);
+}
+
+.projectNum {
+    font-size: 0.58rem;
+    opacity: 0.4;
+    letter-spacing: 0.08em;
+}
+
+.projectName {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+}
+
+.projectTech {
+    font-size: 0.6rem;
+    opacity: 0.45;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Main right column ───────────────────────────── */
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ── 3D Screen ───────────────────────────────────── */
+.screenOuter {
+    position: relative;
+    width: 100%;
+}
+
+.screen {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: rgb(0, 4, 14);
+    border: 1px solid rgba(0, 208, 255, 0.45);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    box-shadow:
+        0 0 30px rgba(0, 208, 255, 0.15),
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        inset 0 0 60px rgba(0, 208, 255, 0.03);
+    cursor: crosshair;
+}
+
+.screenShadow {
+    position: absolute;
+    bottom: -20px;
+    left: 5%;
+    right: 5%;
+    height: 30px;
+    background: rgba(0, 208, 255, 0.08);
+    filter: blur(18px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.scanlines {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 208, 255, 0.022) 2px,
+        rgba(0, 208, 255, 0.022) 4px
+    );
+    animation: scanlineMove 7s linear infinite;
+    pointer-events: none;
+}
+
+.glowRing {
+    position: absolute;
+    inset: 0;
+    z-index: 21;
+    border: 1px solid rgba(0, 208, 255, 0.18);
+    pointer-events: none;
+    animation: flicker 5s ease-in-out infinite;
+}
+
+.screenContent {
+    position: absolute;
+    inset: 0;
+}
+
+/* ── Draggable image strip ───────────────────────── */
+.stripViewport {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.stripViewport:active {
+    cursor: grabbing;
+}
+
+.strip {
+    display: flex;
+    height: 100%;
+    will-change: transform;
+}
+
+.stripItem {
+    position: relative;
+    flex-shrink: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.stripImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+}
+
+.imgCounter {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.75rem;
+    font-size: 0.6rem;
+    font-family: monospace;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    z-index: 5;
+}
+
+/* Left/right fade edges */
+.stripFadeLeft,
+.stripFadeRight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.stripFadeLeft {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 4, 14, 0.7), transparent);
+}
+
+.stripFadeRight {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 4, 14, 0.7), transparent);
+}
+
+/* Glitch flash on hover entry */
+.glitchOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    pointer-events: none;
+    animation: glitchFlash 0.32s steps(2) forwards;
+}
+
+@keyframes glitchFlash {
+    0%   { background: rgba(0, 208, 255, 0.12); clip-path: inset(30% 0 55% 0); }
+    20%  { background: rgba(255, 0, 80, 0.08);  clip-path: inset(60% 0 5% 0); }
+    40%  { background: rgba(0, 208, 255, 0.1);  clip-path: inset(10% 0 80% 0); }
+    60%  { background: rgba(255, 0, 80, 0.06);  clip-path: inset(45% 0 30% 0); }
+    80%  { background: rgba(0, 208, 255, 0.07); clip-path: inset(75% 0 5% 0); }
+    100% { opacity: 0; }
+}
+
+/* ── No-image placeholder ────────────────────────── */
+.noImage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at center, rgba(0, 208, 255, 0.05) 0%, transparent 70%);
+}
+
+.noImageLabel {
+    font-size: 0.82rem;
+    color: var(--primary-blue);
+    opacity: 0.4;
+    letter-spacing: 0.22em;
+    font-family: monospace;
+}
+
+/* ── Info bar ────────────────────────────────────── */
+.infoBar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--hud-border);
+    margin-top: 1.5rem;
+}
+
+.infoLeft {
+    flex: 1;
+    min-width: 0;
+}
+
+.projectTitle {
+    font-size: 1.4rem;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.projectDesc {
+    font-size: 0.85rem;
+    color: var(--primary-blue);
+    line-height: 1.75;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.infoRight {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+}
+
+.techTags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.tag {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--hud-border);
+    color: var(--primary-blue);
+    font-family: monospace;
+    letter-spacing: 0.06em;
+    opacity: 0.75;
+}
+
+.links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.linkBtn {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    padding: 0.5rem 1.1rem;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    text-decoration: none;
+    font-family: monospace;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.linkBtn:hover {
+    background: rgba(0, 208, 255, 0.1);
+    box-shadow: 0 0 14px var(--cyan-glow);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 1024px) {
+    .layout {
+        grid-template-columns: 180px 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 880px) {
+    .section {
+        padding: 5rem 1.25rem;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-right: none;
+        border-bottom: 1px solid var(--hud-border);
+        padding-right: 0;
+        padding-bottom: 1rem;
+        gap: 0.25rem;
+    }
+
+    .projectItem {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        padding: 0.5rem 0.75rem;
+        width: auto;
+    }
+
+    .projectItemActive {
+        border-left: none;
+        border-bottom-color: var(--cyan);
+    }
+
+    .projectTech {
+        display: none;
+    }
+
+    .infoBar {
+        flex-direction: column;
+    }
+
+    .infoRight {
+        align-items: flex-start;
+    }
+}
+
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.headerLine {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--hud-border), transparent);
+}
+
+.container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* ── Sidebar ─────────────────────────────────────── */
+.sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--hud-border);
+    padding-right: 1.25rem;
+}
+
+.projectItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: none;
+    border: none;
+    border-left: 2px solid transparent;
+    color: var(--primary-blue);
+    font-family: monospace;
+    font-size: 0.78rem;
+    padding: 0.72rem 0.75rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    letter-spacing: 0.05em;
+    width: 100%;
+}
+
+.projectItem:hover {
+    color: var(--cyan);
+    border-left-color: rgba(0, 208, 255, 0.35);
+}
+
+.projectItemActive {
+    color: var(--cyan);
+    border-left-color: var(--cyan);
+    background: var(--cyan-dim);
+    text-shadow: 0 0 8px var(--cyan-glow);
+}
+
+.projectNum {
+    font-size: 0.62rem;
+    opacity: 0.45;
+    flex-shrink: 0;
+}
+
+.projectName {
+    flex: 1;
+}
+
+/* ── Screen area ─────────────────────────────────── */
+.screenWrapper {
+    flex: 1;
+    min-width: 0;
+}
+
+.screenFrame {
+    width: 100%;
+}
+
+.screen {
+    position: relative;
+    background: rgb(0, 6, 18);
+    border: 1px solid rgba(0, 208, 255, 0.5);
+    box-shadow:
+        0 0 24px rgba(0, 208, 255, 0.18),
+        0 0 70px rgba(0, 208, 255, 0.06),
+        inset 0 0 40px rgba(0, 208, 255, 0.04);
+    transform: perspective(1400px) rotateX(3deg) rotateY(-2deg);
+    animation: floatScreen 5s ease-in-out infinite;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    min-height: 260px;
+}
+
+@keyframes floatScreen {
+    0%, 100% {
+        transform: perspective(1400px) rotateX(3deg) rotateY(-2deg) translateY(0px);
+        box-shadow:
+            0 0 24px rgba(0, 208, 255, 0.18),
+            0 0 70px rgba(0, 208, 255, 0.06),
+            inset 0 0 40px rgba(0, 208, 255, 0.04);
+    }
+    50% {
+        transform: perspective(1400px) rotateX(3deg) rotateY(-2deg) translateY(-10px);
+        box-shadow:
+            0 14px 40px rgba(0, 208, 255, 0.22),
+            0 0 90px rgba(0, 208, 255, 0.1),
+            inset 0 0 40px rgba(0, 208, 255, 0.04);
+    }
+}
+
+.scanlines {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 208, 255, 0.025) 2px,
+        rgba(0, 208, 255, 0.025) 4px
+    );
+    animation: scanlineMove 6s linear infinite;
+    pointer-events: none;
+}
+
+.glowRing {
+    position: absolute;
+    inset: -1px;
+    border: 1px solid rgba(0, 208, 255, 0.25);
+    animation: flicker 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 11;
+}
+
+.screenContent {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.noImage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 208, 255, 0.06) 0%,
+        transparent 70%
+    );
+}
+
+.noImageLabel {
+    font-size: 0.82rem;
+    color: var(--primary-blue);
+    opacity: 0.45;
+    letter-spacing: 0.22em;
+    font-family: monospace;
+}
+
+.screenFooter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 12;
+    background: rgba(0, 10, 24, 0.88);
+    border-top: 1px solid var(--hud-border);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footerName {
+    font-size: 0.72rem;
+    color: var(--cyan);
+    font-family: monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.techTags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.tag {
+    font-size: 0.62rem;
+    padding: 0.15rem 0.45rem;
+    border: 1px solid var(--hud-border);
+    color: var(--primary-blue);
+    font-family: monospace;
+    letter-spacing: 0.04em;
+    opacity: 0.8;
+}
+
+/* ── Description ─────────────────────────────────── */
+.description {
+    margin-top: 1.5rem;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--hud-border);
+    background: var(--hud-bg);
+}
+
+.concept {
+    font-size: 0.7rem;
+    color: var(--cyan);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+    font-family: monospace;
+    opacity: 0.85;
+}
+
+.descText {
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+    line-height: 1.75;
+    margin: 0 0 1rem;
+}
+
+.links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.linkBtn {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    text-decoration: none;
+    font-family: monospace;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.linkBtn:hover {
+    background: rgba(0, 208, 255, 0.1);
+    box-shadow: 0 0 14px var(--cyan-glow);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 880px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-right: none;
+        border-bottom: 1px solid var(--hud-border);
+        padding-right: 0;
+        padding-bottom: 1rem;
+    }
+
+    .projectItem {
+        width: auto;
+        flex: 0 0 auto;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+    }
+
+    .projectItemActive {
+        border-left: none;
+        border-bottom-color: var(--cyan);
+    }
+}
