@@ -8,7 +8,7 @@ import { experience } from '@/constants/experience';
 
 export default function QuickPortfolioPage() {
     return (
-        <main style={{ overflowX: 'hidden' }}>
+        <main style={{ overflowX: 'clip' }}>
             <HeroSection />
             <AboutSection />
             <TechSection />

@@ -185,6 +185,7 @@
     flex-shrink: 0;
     height: 100%;
     overflow: hidden;
+    margin: 0 10px;
 }
 
 .stripImg {
@@ -230,22 +231,64 @@
     background: linear-gradient(to left, rgba(0, 4, 14, 0.7), transparent);
 }
 
-/* Glitch flash on hover entry */
-.glitchOverlay {
+/* Glitch lens — follows mouse cursor inside screen */
+.glitchLens {
     position: absolute;
-    inset: 0;
-    z-index: 30;
+    width: 160px;
+    height: 160px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 25;
     pointer-events: none;
-    animation: glitchFlash 0.32s steps(2) forwards;
+    backdrop-filter: hue-rotate(140deg) contrast(1.5) brightness(1.08) saturate(1.6);
+    -webkit-backdrop-filter: hue-rotate(140deg) contrast(1.5) brightness(1.08) saturate(1.6);
+    /* Subtle vignette around the lens */
+    box-shadow: 0 0 0 1px rgba(0, 208, 255, 0.25), 0 0 30px rgba(0, 208, 255, 0.1) inset;
 }
 
-@keyframes glitchFlash {
-    0%   { background: rgba(0, 208, 255, 0.12); clip-path: inset(30% 0 55% 0); }
-    20%  { background: rgba(255, 0, 80, 0.08);  clip-path: inset(60% 0 5% 0); }
-    40%  { background: rgba(0, 208, 255, 0.1);  clip-path: inset(10% 0 80% 0); }
-    60%  { background: rgba(255, 0, 80, 0.06);  clip-path: inset(45% 0 30% 0); }
-    80%  { background: rgba(0, 208, 255, 0.07); clip-path: inset(75% 0 5% 0); }
-    100% { opacity: 0; }
+/* RGB-split fringe rings */
+.glitchFringe {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 24;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.fringeRed {
+    background: radial-gradient(circle, rgba(255, 40, 80, 0.22) 0%, transparent 65%);
+}
+
+.fringeBlue {
+    background: radial-gradient(circle, rgba(0, 208, 255, 0.22) 0%, transparent 65%);
+}
+
+/* Horizontal tear at cursor Y */
+.glitchTear {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    transform: translateY(-50%);
+    z-index: 26;
+    pointer-events: none;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 208, 255, 0.35) 20%,
+        rgba(255, 40, 80, 0.25) 50%,
+        rgba(0, 208, 255, 0.35) 80%,
+        transparent 100%
+    );
+    animation: tearFlicker 0.15s steps(1) infinite;
+}
+
+@keyframes tearFlicker {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
 }
 
 /* ── No-image placeholder ────────────────────────── */
