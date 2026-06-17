@@ -61,9 +61,9 @@ const ModalOverlay = ({children, closeModal}) => {
     );
 }
 
-const ModalContent = ({children, closeModal}) => {
+const ModalContent = ({children, closeModal, height='max-content'}) => {
     return (
-        <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.modalContent} style={{height}} onClick={(e) => e.stopPropagation()}>
             <Button action={closeModal} label={'×'} type='icon' />
             {/* <ModalHudChrome /> */}
             {children}

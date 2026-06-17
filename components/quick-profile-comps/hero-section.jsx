@@ -1,6 +1,6 @@
 'use client';
 import { useRef, useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useScroll, useMotionTemplate } from 'framer-motion';
 import Typewriter from '@/components/animations/typewriter';
 import HudFrame from '@/components/hud/hud-frame';
 import DataTicker from '@/components/hud/data-ticker';
@@ -46,42 +46,10 @@ function ParticleField() {
             pulse: Math.random() * Math.PI * 2,
         }));
 
-        // Light rays emanating from mouse
-        const RAYS = 6;
-
-        let tick = 0;
         const draw = () => {
             const W = canvas.width;
             const H = canvas.height;
             ctx.clearRect(0, 0, W, H);
-            tick++;
-
-            const mx = mouse.current.x * W;
-            const my = mouse.current.y * H;
-
-            // Radial ambient glow at mouse
-            const radGrad = ctx.createRadialGradient(mx, my, 0, mx, my, W * 0.45);
-            radGrad.addColorStop(0, 'rgba(0,208,255,0.07)');
-            radGrad.addColorStop(1, 'transparent');
-            ctx.fillStyle = radGrad;
-            ctx.fillRect(0, 0, W, H);
-
-            // Light rays
-            for (let r = 0; r < RAYS; r++) {
-                const angle = (r / RAYS) * Math.PI * 2 + tick * 0.004;
-                const len = W * (0.4 + Math.sin(tick * 0.012 + r) * 0.12);
-                const ex = mx + Math.cos(angle) * len;
-                const ey = my + Math.sin(angle) * len;
-                const ray = ctx.createLinearGradient(mx, my, ex, ey);
-                ray.addColorStop(0, 'rgba(0,208,255,0.09)');
-                ray.addColorStop(1, 'transparent');
-                ctx.beginPath();
-                ctx.moveTo(mx, my);
-                ctx.lineTo(ex, ey);
-                ctx.strokeStyle = ray;
-                ctx.lineWidth = 1.2;
-                ctx.stroke();
-            }
 
             // Particles
             for (const p of particles) {
@@ -156,6 +124,15 @@ const item = {
 export default function HeroSection() {
     const sectionRef = useRef(null);
 
+    // Scroll-driven image exit
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ['start start', 'end start'],
+    });
+    const imageOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+    const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '-25%']);
+    const imageScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.0]);
+
     // Mouse parallax for content block
     const rawX = useMotionValue(0);
     const rawY = useMotionValue(0);
@@ -163,6 +140,11 @@ export default function HeroSection() {
     const springY = useSpring(rawY, { stiffness: 60, damping: 20 });
     const rotateX = useTransform(springY, [-1, 1], [6, -6]);
     const rotateY = useTransform(springX, [-1, 1], [-6, 6]);
+
+    // Spotlight: use raw (unsprung) values so it tracks the cursor with zero lag
+    const spotX = useTransform(rawX, [-1, 1], [0, 100]);
+    const spotY = useTransform(rawY, [-1, 1], [0, 100]);
+    const spotMask = useMotionTemplate`radial-gradient(320px circle at ${spotX}% ${spotY}%, black 0%, black 30%, transparent 80%)`;
 
     const handleMouseMove = (e) => {
         const rect = sectionRef.current?.getBoundingClientRect();
@@ -184,13 +166,27 @@ export default function HeroSection() {
             onMouseLeave={handleMouseLeave}
         >
             {/* Interactive particle field */}
+            <motion.div
+                className={styles.heroImageWrapper}
+                style={{ opacity: imageOpacity, y: imageY, scale: imageScale }}
+            >
+                {/* Dim desaturated base layer */}
+                <img src='/backgrounds/leeds-skyline-v2.png' className={styles.heroImage} alt="" />
+                {/* Full-colour spotlight layer, revealed under mouse */}
+                <motion.img
+                    src='/backgrounds/leeds-skyline-v2.png'
+                    className={styles.heroImageSpotlight}
+                    alt=""
+                    style={{ maskImage: spotMask, WebkitMaskImage: spotMask }}
+                />
+            </motion.div>
             <ParticleField />
 
             {/* Scanline overlay */}
-            <div className={styles.scanlines} aria-hidden="true" />
+            {/* <div className={styles.scanlines} aria-hidden="true" /> */}
 
             {/* Vignette */}
-            <div className={styles.vignette} aria-hidden="true" />
+            {/* <div className={styles.vignette} aria-hidden="true" /> */}
 
             {/* Top-right live readout */}
             <div className={styles.readout}>
@@ -208,27 +204,21 @@ export default function HeroSection() {
                 variants={stagger}
                 initial="hidden"
                 animate="show"
-                style={{ rotateX, rotateY, transformPerspective: 1200 }}
             >
                 <motion.p variants={item} className={styles.label}>
-                    AGENT DOSSIER // FULL-STACK ENGINEER
+                    FULL-STACK ENGINEER
                 </motion.p>
 
                 <motion.div variants={item} className={styles.nameRow}>
-                    <Typewriter speed={65} pause={500}>
                         <h1 className={styles.name}>Aaron Currie</h1>
-                    </Typewriter>
-                </motion.div>
-
-                <motion.div variants={item} className={styles.subtitleWrapper}>
-                    <Typewriter speed={38} pause={800}>
-                        <p className={styles.subtitle}>
-                            Software Engineer · Sky · Leeds UK
-                        </p>
-                    </Typewriter>
                 </motion.div>
 
                 <motion.div variants={item} className={styles.dividerLine} />
+                <motion.div variants={item} className={styles.nameRow}>
+                    <p className={styles.subtitle}>
+                        Software Engineer · Sky · Leeds UK
+                    </p>
+                </motion.div>
 
                 <motion.div variants={item} className={styles.ctas}>
                     <a href="#about" className={styles.ctaPrimary}>
@@ -242,8 +232,6 @@ export default function HeroSection() {
                     </a>
                 </motion.div>
             </motion.div>
-
-            {/* Bottom scrolling ticker */}
         </section>
     );
 }

@@ -19,14 +19,21 @@ export default function Home() {
   const { pages, updatePageStatus } = useUserContext();
 
   useEffect(() => {
-    if(pages.find((page) => page.link === '/').completed) {
+    const home = pages.find((page) => page.link === '/');
+    if(home && home.completed && !home.recentUnlock) {
       setBriefing(false);
-    } 
-  }, [mobile])
-  console.log(pages, 'PAGES IN HOME')
+    }  else {
+      setBriefing(true);
+    }
+  }, [])
   const handleLoadingComplete = () => {
+    const home = pages.find((page) => page.link === '/');
     setLoading(false);
-    updatePageStatus('/', true, false);
+    if(home && home.completed) {
+      updatePageStatus('/', true, false);
+    } else {
+      updatePageStatus('/', true, true);
+    }
   };
 
   const handleMissionClick = (mission) => {
@@ -61,13 +68,15 @@ export default function Home() {
       <section className={styles.section}>
       <img src="/globetactical.png" className={styles.map} />
         <div className={styles.overlay}>
-          <Briefing handleClick={handleBriefingClick} briefing={briefing} exitable={true}>
+          <Briefing handleClick={handleBriefingClick} briefing={briefing} exitable={true} sections={[{title: 'Briefing', content: (
+            <>
               <h3>Briefing</h3>
               <p>Welcome, Operative. Your mission is to track down Agent AC1178 who has gone dark.</p>
               <p>Last known contact was made during an undercover operation. Intel suggests they may be compromised — or deeper undercover than we anticipated. Your mission is to track down AC1178 by revisiting their last known operational sites.</p>
               <p>We must search each site and retrace our agents steps to uncover clues to the agents whereabouts and identity.</p>
               <p>Time is of the essence. Good luck.</p>
-          </Briefing>
+            </>)
+            }]}/>
           {missions.map((mission) => {
             const completed = pages.find((page) => page.link === `${mission.link}`)?.completed;
             return <MissionPin key={mission.id} handleClick={handleMissionClick} mission={mission} completed={completed} />

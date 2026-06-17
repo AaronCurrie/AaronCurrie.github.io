@@ -1,0 +1,28 @@
+.main {
+    background: #000008;
+    overflow-x: clip;
+}
+
+.backButton {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 100;
+    font-family: monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    border: 1px solid rgba(0, 208, 255, 0.35);
+    padding: 0.5rem 1rem;
+    background: rgba(0, 6, 18, 0.75);
+    backdrop-filter: blur(6px);
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+.backButton:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 14px var(--cyan-glow);
+    color: #fff;
+}
